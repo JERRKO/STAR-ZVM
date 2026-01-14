@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Star — Military RP: Afghanistan. Правила, фракции и вступление через Discord.">
+    <meta name="keywords" content="Star, Military RP, Afghanistan, RolePlay, правила, Discord">
+    <meta name="author" content="Star">
+    <meta name="theme-color" content="#1a2332">
+    
+    <title>Star — Military RP: Afghanistan</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+    <link rel="icon" type="image/png" href="img/logo.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+    <link rel="shortcut icon" href="img/favicon.ico">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://star-gorebox.com/">
+    <meta property="og:title" content="Star — Military RP: Afghanistan">
+    <meta property="og:description" content="Правила, фракции и вступление через Discord.">
+    <meta property="og:image" content="https://star-gorebox.com/img/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="Star Military RP">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://star-gorebox.com/">
+    <meta name="twitter:title" content="Star — Military RP: Afghanistan">
+    <meta name="twitter:description" content="Правила, фракции и вступление через Discord.">
+    <meta name="twitter:image" content="https://star-gorebox.com/img/og-image.png">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="home-page">
+    <!-- ========================================
+         Preloader
+         ======================================== -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-content">
+            <!-- Логотип -->
+            <div class="preloader-logo">
+                <span class="preloader-logo-s">S</span>tar
+            </div>
+            
+            <!-- Вращающееся кольцо -->
+            <div class="preloader-ring">
+                <div class="preloader-ring-inner"></div>
+            </div>
+            
+            <!-- Прогресс-бар -->
+            <div class="preloader-progress">
+                <div class="preloader-progress-bar"></div>
+            </div>
+            
+            <!-- Текст -->
+            <div class="preloader-text">
+                ЗАГРУЗКА ДАННЫХ<span class="preloader-dots">...</span>
+            </div>
+        </div>
+        
+        <!-- Частицы -->
+        <div class="preloader-particles">
+            <div class="preloader-particle"></div>
+            <div class="preloader-particle"></div>
+            <div class="preloader-particle"></div>
+            <div class="preloader-particle"></div>
+            <div class="preloader-particle"></div>
+            <div class="preloader-particle"></div>
+        </div>
+    </div>
+
+    <!-- ========================================
+         Header
+         ======================================== -->
+    <header class="header">
+        <!-- Logo -->
+        <a href="index.html" class="logo">
+            <img src="img/logo.png" alt="Star Logo" class="logo-img">
+            <span class="logo-text"><span>S</span>tar</span>
+        </a>
+        
+        <!-- Top Navigation Links -->
+        <nav class="top-nav">
+            <a href="#about" class="top-nav-link" data-i18n="nav.about">О проекте</a>
+            <a href="developers.html" target="_blank" rel="noopener" class="top-nav-link">
+                <svg class="top-nav-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+                </svg>
+                Разработчики
+            </a>
+            <a href="https://discord.gg/rBHWSk4eTT" target="_blank" class="top-nav-link">
+                <svg class="top-nav-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/>
+                </svg>
+                Discord
+            </a>
+            <a href="https://t.me/ZVEZDAMEME" target="_blank" class="top-nav-link">
+                <svg class="top-nav-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                </svg>
+                Telegram
+            </a>
+        </nav>
+        
+        <div class="header-right"></div>
+    </header>
+
+    <!-- ========================================
+         Hero Section with Parallax
+         ======================================== -->
+    <section class="hero parallax-container">
+        <!-- Parallax Layers -->
+        <div class="parallax-layer parallax-back">
+            <div class="hero-bg"></div>
+        </div>
+        
+        <div class="parallax-layer parallax-mid">
+            <div class="parallax-particles">
+                <span class="particle"></span>
+                <span class="particle"></span>
+                <span class="particle"></span>
+                <span class="particle"></span>
+                <span class="particle"></span>
+                <span class="particle"></span>
+                <span class="particle"></span>
+                <span class="particle"></span>
+            </div>
+        </div>
+        
+        <!-- Dust Effect -->
+        <div class="dust-container">
+            <div class="dust dust-1"></div>
+            <div class="dust dust-2"></div>
+            <div class="dust dust-3"></div>
+            <div class="dust dust-4"></div>
+            <div class="dust dust-5"></div>
+            <div class="dust dust-6"></div>
+            <div class="dust dust-7"></div>
+            <div class="dust dust-8"></div>
+            <div class="dust dust-9"></div>
+            <div class="dust dust-10"></div>
+            <div class="dust dust-11"></div>
+            <div class="dust dust-12"></div>
+            <div class="dust dust-13"></div>
+            <div class="dust dust-14"></div>
+            <div class="dust dust-15"></div>
+        </div>
+        
+        <!-- Overlay -->
+        <div class="hero-overlay"></div>
+        
+        <!-- Content (Front Layer) -->
+        <div class="hero-content">
+            <div class="hero-military-block">
+                <h1 class="hero-military-title">MILITARY RP</h1>
+            </div>
+            <div class="hero-military-sub">
+                GOREBOX SERVERS
+            </div>
+            
+            <div class="hero-divider"></div>
+            
+            <div class="hero-cta">
+                <a href="https://discord.gg/rBHWSk4eTT" target="_blank" rel="noopener" class="btn btn-primary" data-i18n="hero.join">ПРИСОЕДИНИТЬСЯ</a>
+                <a href="#rules" class="btn btn-outline" data-i18n="hero.rules">ПРАВИЛА СЕРВЕРА</a>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+            <span></span>
+        </div>
+    </section>
+
+    <!-- ========================================
+         Main Bento Grid Layout (Quick Start, Factions, Rules)
+         ======================================== -->
+    <section class="main-bento-grid">
+        <div class="section-container">
+            
+            <!-- Grid Wrapper -->
+            <div class="bento-wrapper">
+
+                <!-- 1. Quick Start Row (Top) -->
+                <div class="bento-box quick-start-box reveal-on-scroll">
+                    <div class="bento-header">БЫСТРЫЙ СТАРТ</div>
+                    <div class="qs-grid">
+                        <a class="qs-card" href="https://discord.gg/rBHWSk4eTT" target="_blank" rel="noopener">
+                            <div class="qs-icon">
+                                <img src="IMG/DISCORD-Logo.png" alt="Discord" style="width: 32px; height: 32px; object-fit: contain;">
+                            </div>
+                            <div class="qs-texts">
+                                <span class="qs-step">1. ЗАЙДИ В DISCORD</span>
+                                <span class="qs-desc">Присоединяйся к серверу для начала игры.</span>
+                            </div>
+                        </a>
+                        <a class="qs-card" href="#rules">
+                            <div class="qs-icon">📝</div>
+                            <div class="qs-texts">
+                                <span class="qs-step">2. ПОДАЙ ЗАЯВКУ</span>
+                                <span class="qs-desc">Восрой Discord и затем подавай заявку на WL.</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 2. Factions (Bottom Left) -->
+                <div class="bento-box factions-box reveal-on-scroll reveal-delay-1">
+                    <div class="bento-header">ВЫБЕРИ СВОЮ СТОРОНУ</div>
+                    <div class="factions-grid-bento">
+                        
+                        <!-- USSR Card -->
+                        <a href="ussr.html" class="faction-card ussr">
+                          <div class="faction-content">
+                            <!-- Image Logo -->
+                            <img src="IMG/ussr-logo.png" alt="СССР" class="faction-icon">
+                            <h3 class="faction-title">СССР</h3>
+                            <p class="faction-desc">Дисциплина и мощь. Защита интересов в регионе.</p>
+                          </div>
+                          <div class="bottom-glow"></div>
+                        </a>
+
+                        <!-- Mujahideen Card -->
+                        <a href="mujahideen.html" class="faction-card muj">
+                          <div class="faction-content">
+                            <img src="IMG/muj-logo.png" alt="Моджахеды" class="faction-icon">
+                            <h3 class="faction-title">МОДЖАХЕДЫ</h3>
+                            <p class="faction-desc">Партизанская война. Знание местности и засады.</p>
+                          </div>
+                          <div class="bottom-glow"></div>
+                        </a>
+
+                    </div>
+                </div>
+
+                <!-- 3. Rules (Right Column) -->
+                <div class="bento-box rules-box reveal-on-scroll reveal-delay-2">
+                    <div class="bento-header">ПРАВИЛА И РЕГЛАМЕНТ</div>
+                    <div class="rules-list-bento">
+                        <a href="rules-general.html" class="rule-item-bento">
+                            <div class="r-icon">📘</div>
+                            <div class="r-info">
+                                <div class="r-title">ОБЩИЕ ПРАВИЛА</div>
+                                <div class="r-sub">Сеттинг, общение, bans.</div>
+                            </div>
+                        </a>
+                        <a href="rules-rp.html" class="rule-item-bento">
+                            <div class="r-icon">🎭</div>
+                            <div class="r-info">
+                                <div class="r-title">RP ОТЫГРОВКА</div>
+                                <div class="r-sub">IC/OOC, MetaGaming.</div>
+                            </div>
+                        </a>
+                        <a href="rules-combat.html" class="rule-item-bento">
+                            <div class="r-icon">⚠️</div>
+                            <div class="r-info">
+                                <div class="r-title">БОЕВЫЕ ПРАВИЛА</div>
+                                <div class="r-sub">Бой, плен, медицина.</div>
+                            </div>
+                            <div class="btn-xs-accent">ПОДРОБНЕЕ</div>
+                        </a>
+                        
+                        <!-- Commands (Soon) -->
+                        <div class="rule-item-bento" style="cursor: default; opacity: 0.8;">
+                            <div class="r-icon">⌨️</div>
+                            <div class="r-info">
+                                <div class="r-title">КОМАНДЫ</div>
+                                <div class="r-sub">В разработке</div>
+                            </div>
+                            <div class="btn-xs-accent" style="background: transparent; border: 1px solid #71717a; color: #a1a1aa;">СКОРО</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         Back to Top Button
+         ======================================== -->
+    <button class="back-to-top" id="backToTop" aria-label="Наверх">
+        <svg class="back-to-top-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 15l-6-6-6 6"/>
+        </svg>
+        <span class="back-to-top-text">НАВЕРХ</span>
+    </button>
+
+    <!-- ========================================
+         Footer
+         ======================================== -->
+    <footer class="footer">
+        <p class="footer-text" data-i18n="footer.text">
+            © 2026 <span>Star</span> — Military RP: Afghanistan. Все права защищены.
+        </p>
+    </footer>
+
+    <!-- 3D Parallax Effect -->
+    <script src="script.js"></script>
+</body>
+</html>

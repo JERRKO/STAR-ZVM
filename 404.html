@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Страница не найдена - Star Gorebox Servers">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="theme-color" content="#1a2332">
+    
+    <title>404 - Страница не найдена | Star</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+    <link rel="icon" type="image/png" href="img/logo.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+    <link rel="shortcut icon" href="img/favicon.ico">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="404 - Страница не найдена">
+    <meta property="og:description" content="Запрошенная страница не найдена на сервере Star Gorebox.">
+    <meta property="og:image" content="https://star-gorebox.com/img/og-image.png">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Russo+One&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --color-dark-blue: #1a2332;
+            --color-navy: #0d1521;
+            --color-khaki: #6b7c5e;
+            --color-khaki-light: #8a9a7c;
+            --color-sand: #c9b896;
+            --color-accent: #d4a84b;
+            --color-white: #ffffff;
+            --color-text: #e8e8e8;
+            --color-text-muted: #a0a0a0;
+            --font-heading: 'Russo One', sans-serif;
+            --font-body: 'Rajdhani', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-dark-blue) 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Частицы на фоне */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--color-sand);
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .particle:nth-child(1) { left: 10%; top: 20%; animation-delay: 0s; }
+        .particle:nth-child(2) { left: 20%; top: 60%; animation-delay: 1s; }
+        .particle:nth-child(3) { left: 35%; top: 30%; animation-delay: 2s; }
+        .particle:nth-child(4) { left: 50%; top: 70%; animation-delay: 0.5s; }
+        .particle:nth-child(5) { left: 65%; top: 40%; animation-delay: 1.5s; }
+        .particle:nth-child(6) { left: 75%; top: 80%; animation-delay: 3s; }
+        .particle:nth-child(7) { left: 85%; top: 25%; animation-delay: 2.5s; }
+        .particle:nth-child(8) { left: 90%; top: 55%; animation-delay: 0.8s; }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) translateX(0);
+                opacity: 0.3;
+            }
+            50% {
+                transform: translateY(-30px) translateX(10px);
+                opacity: 0.6;
+            }
+        }
+
+        /* Контент */
+        .container {
+            text-align: center;
+            padding: 40px;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Код ошибки */
+        .error-code {
+            font-family: var(--font-heading);
+            font-size: clamp(8rem, 25vw, 15rem);
+            color: transparent;
+            background: linear-gradient(
+                180deg,
+                var(--color-white) 0%,
+                var(--color-sand) 50%,
+                var(--color-khaki) 100%
+            );
+            -webkit-background-clip: text;
+            background-clip: text;
+            line-height: 1;
+            margin-bottom: 10px;
+            position: relative;
+            animation: glitch 3s ease-in-out infinite;
+            text-shadow: none;
+            filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.5));
+        }
+
+        .error-code::before,
+        .error-code::after {
+            content: '404';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                180deg,
+                var(--color-accent) 0%,
+                var(--color-sand) 100%
+            );
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .error-code::before {
+            animation: glitchTop 1s ease-in-out infinite;
+            clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
+        }
+
+        .error-code::after {
+            animation: glitchBottom 1.5s ease-in-out infinite;
+            clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
+        }
+
+        @keyframes glitch {
+            0%, 90%, 100% {
+                transform: translateX(0);
+            }
+            92% {
+                transform: translateX(-5px);
+            }
+            94% {
+                transform: translateX(5px);
+            }
+            96% {
+                transform: translateX(-3px);
+            }
+            98% {
+                transform: translateX(3px);
+            }
+        }
+
+        @keyframes glitchTop {
+            0%, 90%, 100% {
+                transform: translateX(0);
+            }
+            92% {
+                transform: translateX(10px);
+            }
+            94% {
+                transform: translateX(-10px);
+            }
+        }
+
+        @keyframes glitchBottom {
+            0%, 85%, 100% {
+                transform: translateX(0);
+            }
+            87% {
+                transform: translateX(-8px);
+            }
+            89% {
+                transform: translateX(8px);
+            }
+        }
+
+        /* Заголовок */
+        .error-title {
+            font-family: var(--font-heading);
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            color: var(--color-white);
+            text-transform: uppercase;
+            letter-spacing: 8px;
+            margin-bottom: 20px;
+        }
+
+        /* Описание */
+        .error-text {
+            font-size: 1.2rem;
+            color: var(--color-text-muted);
+            max-width: 500px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
+        }
+
+        /* Декоративная линия */
+        .divider {
+            width: 150px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--color-accent), var(--color-sand), var(--color-accent), transparent);
+            margin: 30px auto;
+            position: relative;
+        }
+
+        .divider::before {
+            content: '⚠';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1.2rem;
+            background: var(--color-navy);
+            padding: 0 15px;
+            color: var(--color-accent);
+        }
+
+        /* Кнопки */
+        .buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 35px;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-decoration: none;
+            border: 2px solid var(--color-khaki);
+            background: rgba(107, 124, 94, 0.2);
+            color: var(--color-white);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn:hover {
+            background: var(--color-khaki);
+            border-color: var(--color-khaki-light);
+            color: var(--color-navy);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-primary {
+            background: rgba(212, 168, 75, 0.2);
+            border-color: var(--color-accent);
+        }
+
+        .btn-primary:hover {
+            background: var(--color-accent);
+            border-color: var(--color-accent);
+        }
+
+        .btn-icon {
+            font-size: 1.2rem;
+        }
+
+        /* Военные элементы декора */
+        .corner {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            border: 3px solid var(--color-khaki);
+            opacity: 0.5;
+        }
+
+        .corner-tl {
+            top: 30px;
+            left: 30px;
+            border-right: none;
+            border-bottom: none;
+        }
+
+        .corner-tr {
+            top: 30px;
+            right: 30px;
+            border-left: none;
+            border-bottom: none;
+        }
+
+        .corner-bl {
+            bottom: 30px;
+            left: 30px;
+            border-right: none;
+            border-top: none;
+        }
+
+        .corner-br {
+            bottom: 30px;
+            right: 30px;
+            border-left: none;
+            border-top: none;
+        }
+
+        /* Radar effect */
+        .radar {
+            position: absolute;
+            bottom: 50px;
+            right: 50px;
+            width: 100px;
+            height: 100px;
+            border: 2px solid var(--color-khaki);
+            border-radius: 50%;
+            opacity: 0.3;
+        }
+
+        .radar::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 50%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--color-accent), transparent);
+            transform-origin: left center;
+            animation: radarScan 3s linear infinite;
+        }
+
+        .radar::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 8px;
+            height: 8px;
+            background: var(--color-accent);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--color-accent);
+        }
+
+        @keyframes radarScan {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Footer */
+        .footer {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.85rem;
+            color: var(--color-text-muted);
+            letter-spacing: 2px;
+        }
+
+        .footer span {
+            color: var(--color-accent);
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+
+            .error-title {
+                letter-spacing: 4px;
+            }
+
+            .error-text {
+                font-size: 1rem;
+            }
+
+            .buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+            }
+
+            .corner {
+                width: 30px;
+                height: 30px;
+            }
+
+            .corner-tl, .corner-tr {
+                top: 15px;
+            }
+
+            .corner-bl, .corner-br {
+                bottom: 15px;
+            }
+
+            .corner-tl, .corner-bl {
+                left: 15px;
+            }
+
+            .corner-tr, .corner-br {
+                right: 15px;
+            }
+
+            .radar {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Частицы -->
+    <div class="particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <!-- Углы -->
+    <div class="corner corner-tl"></div>
+    <div class="corner corner-tr"></div>
+    <div class="corner corner-bl"></div>
+    <div class="corner corner-br"></div>
+
+    <!-- Радар -->
+    <div class="radar"></div>
+
+    <!-- Контент -->
+    <div class="container">
+        <div class="error-code">404</div>
+        
+        <h1 class="error-title">Цель не обнаружена</h1>
+        
+        <div class="divider"></div>
+        
+        <p class="error-text">
+            Запрошенная страница не найдена. Возможно, она была перемещена, 
+            удалена или никогда не существовала.
+        </p>
+        
+        <div class="buttons">
+            <a href="index.html" class="btn btn-primary">
+                <span class="btn-icon">🏠</span>
+                На главную
+            </a>
+            <a href="javascript:history.back()" class="btn">
+                <span class="btn-icon">↩️</span>
+                Назад
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        © 2026 <span>Star</span> — Gorebox Servers
+    </div>
+</body>
+</html>
