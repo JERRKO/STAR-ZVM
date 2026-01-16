@@ -1,4 +1,4 @@
-
+﻿
 /* ========================================
    MILITARY RP - Afghan War Documentation
    Стили сайта
@@ -37,7 +37,7 @@
 :root {
     /* Fonts */
     --font-heading: 'Russo One', 'Rajdhani', system-ui, -apple-system, 'Segoe UI', sans-serif;
-    --font-body: 'Rajdhani', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    --font-body: 'Inter', system-ui, -apple-system, sans-serif; /* Changed from Rajdhani to Inter for better readability */
 
     /* Colors */
     --color-navy: #0d1521;
@@ -381,10 +381,10 @@
     top: 0;
     left: 0;
     right: 0;
-    z-index: 1000;
+    z-index: 1100; /* Higher than fullscreen menu (1000) */
     padding: 10px 30px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Push items to edges */
     align-items: center;
     background: rgba(13, 21, 33, 0.95); /* Solid dark background */
     backdrop-filter: blur(12px); /* Glass effect */
@@ -423,38 +423,230 @@
     color: var(--color-accent);
 }
 
-/* Top Navigation Panel Style */
-.top-nav {
+/* ========================================
+   Hamburger Menu & Fullscreen Overlay
+   ======================================== */
+
+.hamburger-btn {
     display: flex;
-    align-items: center;
-    gap: 5px;
-    background: rgba(255,255,255,0.03);
-    padding: 4px;
-    border-radius: 6px;
-    border: 1px solid rgba(255,255,255,0.05);
+    flex-direction: column;
+    justify-content: space-between;
+    width: 32px;
+    height: 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001; /* Above everything */
+    position: relative;
 }
 
-.top-nav-link {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-family: 'Inter', sans-serif;
-    font-size: 0.9rem;
-    font-weight: 700;
-    color: #94a3b8;
-    text-decoration: none;
-    padding: 8px 16px;
-    border-radius: 4px;
-    transition: all 0.2s ease;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+.bar {
+    width: 100%;
+    height: 3px;
+    background-color: var(--color-white);
+    border-radius: 2px;
+    transition: all 0.3s ease-in-out;
 }
 
-.top-nav-link:hover {
+/* X Animation */
+.hamburger-btn.active .bar-1 {
+    transform: translateY(10.5px) rotate(45deg);
+    background-color: var(--color-accent);
+}
+
+.hamburger-btn.active .bar-2 {
+    opacity: 0;
+}
+
+.hamburger-btn.active .bar-3 {
+    transform: translateY(-10.5px) rotate(-45deg);
+    background-color: var(--color-accent);
+}
+
+/* Fullscreen Menu */
+.fullscreen-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(11, 17, 33, 0.98); /* Almost opaque dark navy */
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease;
+}
+
+.fullscreen-menu.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.menu-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Back to Center */
+    justify-content: center; /* Vertically centered again */
+    padding-top: 0;
+    gap: 15px;
+    min-width: 300px;
+    height: 100%;
+}
+
+.menu-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--font-heading);
+    font-size: 1.2rem; /* Smaller font (was 1.5-2.0) */
     color: var(--color-white);
-    background: rgba(255, 255, 255, 0.1);
-    transform: none;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: all 0.2s ease;
+    padding: 10px 20px; /* Reduced padding */
+    border-radius: 8px;
+    width: 320px; /* Fixed lighter width */
+    background: rgba(26, 35, 50, 0.6); /* Dark semi-transparent background */
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
+
+/* Specific icon containers not needed if we simplified */
+.menu-icon-box {
+    display: none;
+}
+
+.menu-link:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px); /* Simple lift */
+    border-color: var(--color-accent);
+}
+
+.menu-link:active {
+    transform: scale(0.98);
+}
+
+.menu-icon {
+    width: 24px; /* Smaller icons */
+    height: 24px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.menu-link:hover .menu-icon {
+    transform: scale(1.1);
+}
+
+.menu-link span {
+    text-shadow: none;
+}
+
+
+/* Remove the underline effect in favor of the specialized hover above */
+.menu-link::after {
+    display: none;
+}
+
+.menu-divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    margin: 15px 0;
+}
+
+/* Highlighted Links (Donate) */
+.menu-donate {
+    background: rgba(252, 165, 165, 0.05);
+    border: 1px solid rgba(252, 165, 165, 0.1);
+}
+
+.menu-donate span {
+    color: #fca5a5;
+}
+
+.menu-donate:hover {
+    background: rgba(252, 165, 165, 0.15);
+    border-color: #fca5a5;
+    box-shadow: 0 0 20px rgba(252, 165, 165, 0.2);
+    transform: translateX(10px) scale(1.02);
+}
+
+.menu-boosty {
+    background: rgba(246, 166, 84, 0.05);
+    border: 1px solid rgba(246, 166, 84, 0.1);
+}
+
+.menu-boosty span {
+    color: #f6a654;
+}
+
+.menu-boosty:hover {
+    background: rgba(246, 166, 84, 0.15);
+    border-color: #f6a654;
+    box-shadow: 0 0 20px rgba(246, 166, 84, 0.2);
+    transform: translateX(10px) scale(1.02);
+}
+
+/* Hide header right as we removed it */
+.header-right {
+    display: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .header {
+        /* Move button significantly to the left (away from edge) */
+        padding: 10px 60px 10px 20px; 
+    }
+    
+    /* Shift the menu content a bit to the left on mobile */
+    .menu-nav {
+        transform: translateX(-5px);
+        align-items: flex-start;
+        width: 100%;
+        padding-left: 5%; 
+        gap: 8px; /* Compact gap */
+    }
+    
+    .hamburger-btn {
+        width: 36px;
+        height: 26px;
+        /* Push it even more to the left */
+        margin-right: 20px;
+    }
+    
+    .bar {
+        height: 3px;
+        background-color: var(--color-white);
+        box-shadow: 0 0 4px rgba(0,0,0,0.5);
+    }
+    
+    /* Extra Small Buttons */
+    .menu-link {
+        font-size: 0.9rem; /* Much smaller text */
+        padding: 6px 10px; /* Minimal padding */
+        gap: 8px; 
+        min-height: 40px; /* Ensure touch target isn't too tiny */
+    }
+
+    .menu-icon {
+        width: 24px; /* Tiny icons */
+        height: 24px;
+        filter: drop-shadow(0 0 3px rgba(0,0,0,0.8)); /* Stronger shadow for visibility */
+    }
+}
+
+/* Logo override for header layout */
+.header {
+    justify-content: space-between; /* Push logo and hamburger to edges */
+}
+
+/* Top Navigation Panel Style (REMOVED) */
+/* .top-nav { ... } */
 
 /* ========================================
    Bento Grid Layout (Modern Military UI - Dark)
@@ -855,34 +1047,52 @@
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    /* Ensure perspective for 3D vibes if we add transforms later */
+    perspective: 1000px;
 }
 
-.hero-bg {
+.parallax-layer {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('img/hero.jpg');
-    background-size: cover;
+    top: -5%;
+    left: -5%;
+    width: 110%;
+    height: 110%;
     background-position: center;
+    background-size: cover;
     background-repeat: no-repeat;
-    z-index: -2;
+    transition: transform 0.1s linear; /* Smooth mouse movement */
+    will-change: transform;
 }
 
+.layer-base {
+    background-image: url('img/hero.jpg');
+    z-index: 1;
+}
+
+.layer-top {
+    background-image: url('img/hero-3d.png');
+    z-index: 2;
+    /* Ensure the top layer (transparent) sits nicely */
+    background-size: cover; 
+}
+
+/* Updated overlay to sit between layers and content if needed, 
+   or just above everything but below content */
 .hero-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+    /* Darkening for readability */
     background: linear-gradient(
         180deg,
-        rgba(13, 21, 33, 0.7) 0%,
-        rgba(26, 35, 50, 0.5) 50%,
-        rgba(13, 21, 33, 0.9) 100%
+        rgba(13, 21, 33, 0.4) 0%,
+        rgba(26, 35, 50, 0.2) 50%,
+        rgba(13, 21, 33, 0.8) 100%
     );
-    z-index: -1;
+    z-index: 3;
+    pointer-events: none;
 }
 
 .hero-content {
@@ -3281,28 +3491,60 @@
     }
 }
 
+/* Enhanced Button Styles */
 .btn.btn-primary {
-    background: var(--color-khaki);
-    border-color: var(--color-khaki-light);
-    color: var(--color-navy);
+    background: linear-gradient(135deg, var(--color-khaki) 0%, #a39050 100%);
+    border: 1px solid var(--color-khaki-light);
+    color: #0f172a; /* Darker navy for better contrast */
+    font-weight: 800;
+    box-shadow: 0 4px 15px rgba(212, 168, 75, 0.3);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.btn.btn-primary::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    transform: skewX(-20deg);
+    transition: none;
 }
 
 .btn.btn-primary:hover {
-    background: var(--color-khaki-light);
+    background: linear-gradient(135deg, var(--color-khaki-light) 0%, var(--color-khaki) 100%);
     border-color: var(--color-sand);
-    color: var(--color-navy);
+    color: #000;
+    box-shadow: 0 0 20px rgba(212, 168, 75, 0.6), inset 0 0 10px rgba(255, 255, 255, 0.3);
+    transform: translateY(-3px);
+}
+
+.btn.btn-primary:hover::after {
+    left: 100%;
+    transition: 0.5s ease-in-out;
 }
 
 .btn.btn-outline {
-    background: transparent;
-    border-color: rgba(255, 255, 255, 0.8);
+    background: rgba(13, 21, 33, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.5);
     color: var(--color-white);
+    backdrop-filter: blur(4px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+    font-weight: 700;
 }
 
 .btn.btn-outline:hover {
-    background: rgba(255, 255, 255, 0.95);
-    border-color: rgba(255, 255, 255, 0.95);
-    color: var(--color-navy);
+    background: rgba(255, 255, 255, 0.1);
+    border-color: #ffffff;
+    color: #ffffff;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.4), inset 0 0 15px rgba(255, 255, 255, 0.1);
+    transform: translateY(-3px);
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
 }
 
 .btn.btn-sm {
@@ -4022,5 +4264,744 @@
 @media (max-width: 720px) {
     .faction-categories-grid {
         grid-template-columns: 1fr;
+    }
+}
+/* ========================================
+   MOBILE & LAYOUT INTEGRITY FIXES (FINAL)
+   ======================================== */
+
+/* 1. Base Reset to prevent White Stripes */
+html, body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background-color: #0b1121; /* Force Dark Navy background matching scrollbar/theme */
+    background: #0b1121;
+}
+
+@media (max-width: 768px) {
+    /* 2. Header Visibility Fix */
+    .header {
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        padding: 5px 15px; /* Minimal padding */
+        background: rgba(13, 21, 33, 0.98);
+        height: auto;
+        min-height: 50px;
+        z-index: 10000;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    }
+    
+    .logo-text {
+        font-size: 1.1rem;
+    }
+
+    /* Force Nav display as Icons */
+    .top-nav {
+        display: flex !important;
+        gap: 12px;
+        background: transparent;
+        border: none;
+        padding: 0;
+    }
+
+    .top-nav-link {
+        padding: 5px;
+        font-size: 0; /* Hide Text */
+    }
+
+    .top-nav-link svg {
+        width: 26px;
+        height: 26px;
+        display: block;
+        color: var(--color-accent);
+    }
+
+    /* Hide 'About' or text-only links that have no icons to prevent empty space */
+    .top-nav-link[href="#about"] {
+        display: none; 
+    }
+
+    /* 3. Container & Padding Fixes (No White Stripes) */
+    .hero-content, 
+    .container, 
+    .rules-links-grid, 
+    .factions-grid,
+    .bento-wrapper,
+    .quick-start-grid,
+    .main-bento-grid,
+    .home-split,
+    .faction-categories-grid,
+    .faction-hero-content {
+        width: 100% !important; /* Use full width */
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding-left: 15px !important; /* Internal padding instead of margin */
+        padding-right: 15px !important;
+        box-sizing: border-box;
+    }
+
+    /* Remove lateral margins from body children to stop white gaps */
+    body > * {
+        max-width: 100vw;
+    }
+
+    /* 4. Grid Stacking (One Column) */
+    .bento-wrapper,
+    .rules-links-grid,
+    .faction-categories-grid,
+    .qs-grid,
+    .factions-grid,
+    .factions-grid-bento {
+        grid-template-columns: 1fr !important;
+        display: grid !important;
+        gap: 20px !important;
+    }
+
+    /* 5. Card Sizing */
+    .rules-link-card,
+    .bento-tile,
+    .faction-card,
+    .category-tile,
+    .qs-card,
+    .rules-box,
+    .quick-start-box {
+        width: 100% !important;
+        height: auto !important;
+        min-height: 0 !important;
+        box-sizing: border-box;
+    }
+
+    /* Hero Title Scaling */
+    .hero-title {
+        font-size: 2.2rem !important; /* Fit within screen */
+        line-height: 1.1;
+        white-space: normal;
+        word-wrap: break-word;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .btn {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+/* ========================================
+   MOBILE ORDERING FIX (FLEXBOX)
+   ======================================== */
+@media (max-width: 768px) {
+    .bento-wrapper {
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+    /* 1. Quick Start */
+    .quick-start-box {
+        order: 1 !important;
+    }
+
+    /* 2. Rules */
+    .rules-box {
+        order: 2 !important;
+    }
+
+    /* 3. Factions */
+    .factions-box {
+        order: 3 !important;
+    }
+    
+    /* Ensure full width for these flex items */
+    .bento-box {
+        width: 100% !important;
+        margin-bottom: 20px !important;
+    }
+}
+
+
+/* ========================================
+   FACTION PAGES DOCUMENT DESIGN
+   ======================================== */
+
+.doc-meta {
+    margin-top: 15px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    font-size: 0.9rem;
+    font-family: 'Roboto Mono', monospace;
+    opacity: 0.8;
+}
+
+.doc-meta-item {
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.status-active { color: #4ade80; font-weight: bold; }
+.status-guerilla { color: #fbbf24; font-weight: bold; }
+.access-level { color: #f87171; font-weight: bold; }
+
+.faction-hero-badge {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 6px 12px;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    display: inline-block;
+}
+
+.doc-paper {
+    background: #1e293b;
+    border-left: 4px solid #334155;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    border-radius: 2px;
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.doc-paper::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, transparent 50%, rgba(255,255,255,0.05) 50%);
+    pointer-events: none;
+}
+
+/* USSR Specific Paper */
+.doc-paper article {
+    margin-bottom: 40px;
+    border-bottom: 1px dashed rgba(255,255,255,0.1);
+    padding-bottom: 30px;
+}
+.doc-paper article:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.section-num {
+    color: var(--color-accent);
+    margin-right: 10px;
+    font-family: 'Times New Roman', serif;
+    font-style: italic;
+}
+
+.highlight-text {
+    color: #e2e8f0;
+    font-weight: 800;
+}
+
+/* Styled Lists inside documents */
+.styled-list li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 12px;
+    line-height: 1.6;
+    color: #94a3b8;
+}
+
+.styled-list li::before {
+    content: '� �';
+    position: absolute;
+    left: 0;
+    color: var(--color-accent);
+    font-size: 1.2em;
+    line-height: 1;
+}
+
+/* Role Cards */
+.role-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.role-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.05);
+    padding: 15px;
+    border-radius: 4px;
+}
+
+.role-card h3 {
+    color: #fff;
+    font-size: 1rem;
+    margin-bottom: 8px;
+    border-bottom: 2px solid var(--color-accent);
+    display: inline-block;
+}
+
+.role-card p {
+    font-size: 0.9rem;
+    color: #cbd5e1;
+    line-height: 1.4;
+}
+
+/* Footer Note */
+.footer-note {
+    text-align: center;
+    color: #64748b;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.85rem;
+    border-top: 1px solid #334155;
+    padding-top: 20px;
+    text-transform: uppercase;
+}
+
+/* Mujahideen Specific overrides */
+.doc-paper-muj {
+    border-left-color: #48bb78; /* Green border */
+    background: #181d18; /* Slight green tint */
+}
+.rule-badge-muj {
+    border-color: #48bb78;
+    color: #86efac;
+}
+
+@media (max-width: 768px) {
+    .doc-paper {
+        padding: 20px;
+    }
+}
+/* ========================================
+   USSR Faction Specific Enhancements
+   ======================================== */
+
+/* Hierarchy Ladder */
+.hierarchy-ladder {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px 25px;
+    position: relative;
+}
+
+.hierarchy-ladder::before {
+    content: '';
+    position: absolute;
+    left: 45px;
+    top: 40px;
+    bottom: 40px;
+    width: 2px;
+    background: rgba(255, 255, 255, 0.1);
+    z-index: 0;
+}
+
+.rank-step {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+    z-index: 1;
+    background: rgba(36, 48, 71, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.05); /* Slight outline */
+    padding: 15px 20px;
+    border-radius: 12px;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.rank-step:hover {
+    transform: translateX(5px);
+    border-color: rgba(204, 0, 0, 0.3); /* Reddish tint on hover */
+    background: rgba(40, 50, 75, 0.6);
+}
+
+.rank-icon {
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+    background: rgba(204, 0, 0, 0.15); /* Red background for rank icon */
+    color: #ffaaaa;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: 1px solid rgba(204, 0, 0, 0.3);
+}
+
+.rank-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.rank-title {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    color: var(--color-white);
+    letter-spacing: 0.5px;
+}
+
+.rank-desc {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    margin-top: 4px;
+}
+
+
+/* Enhanced Role Cards */
+.role-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.role-card-modern {
+    background: rgba(30, 41, 59, 0.5);
+    border: 1px solid rgba(148, 163, 184, 0.1);
+    border-radius: 16px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.role-card-modern::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--color-accent);
+    opacity: 0.5;
+}
+
+.role-card-modern:hover {
+    transform: translateY(-5px);
+    background: rgba(30, 41, 59, 0.8);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    border-color: rgba(212, 168, 75, 0.2);
+}
+
+.role-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.role-icon {
+    width: 48px;
+    height: 48px;
+    background: rgba(212, 168, 75, 0.1);
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    color: var(--color-accent);
+    font-size: 1.4rem;
+}
+
+.role-title {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    color: var(--color-white);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.role-desc {
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/* Quote Block */
+.faction-quote {
+    text-align: center;
+    font-family: var(--font-heading);
+    font-style: italic;
+    font-size: 1.4rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin: -10px 0 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Section Title Highlight */
+.h-red { color: #ff6b6b; }
+
+/* 4. Donate Box (Bento Grid) */
+.donate-box {
+    grid-column: 1 / -1;
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.6), rgba(15, 23, 42, 0.8)), 
+                url('img/hero-3d.png'); /* Subtle texture using existing asset */
+    background-size: cover;
+    background-position: center 20%;
+    border: 1px solid rgba(252, 165, 165, 0.2);
+    padding: 30px;
+    margin-top: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Red accent corners override just for this box */
+.donate-box::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    pointer-events: none;
+    z-index: 1;
+    background: 
+        linear-gradient(to right, #fca5a5 2px, transparent 2px) 0 0,
+        linear-gradient(to bottom, #fca5a5 2px, transparent 2px) 0 0,
+        linear-gradient(to left, #fca5a5 2px, transparent 2px) 100% 0,
+        linear-gradient(to bottom, #fca5a5 2px, transparent 2px) 100% 0,
+        linear-gradient(to left, #fca5a5 2px, transparent 2px) 100% 100%,
+        linear-gradient(to top, #fca5a5 2px, transparent 2px) 100% 100%,
+        linear-gradient(to right, #fca5a5 2px, transparent 2px) 0 100%,
+        linear-gradient(to top, #fca5a5 2px, transparent 2px) 0 100%;
+    background-repeat: no-repeat;
+    background-size: 15px 15px;
+    opacity: 0.8;
+}
+
+.donate-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    position: relative;
+    z-index: 2;
+}
+
+.donate-text {
+    flex: 1;
+}
+
+.donate-title {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: #ffffff;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    background: linear-gradient(90deg, #fca5a5, #f87171);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.donate-desc {
+    color: #cbd5e1;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    max-width: 650px;
+}
+
+.donate-desc span {
+    color: #fca5a5;
+    font-weight: 700;
+}
+
+.donate-actions {
+    display: flex;
+    gap: 15px;
+}
+
+.btn-donate-alert, .btn-donate-boosty {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 28px;
+    border-radius: 6px;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    text-transform: uppercase;
+    font-size: 1rem;
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(5px);
+}
+
+/* DonationAlerts Style */
+.btn-donate-alert {
+    border: 1px solid rgba(252, 165, 165, 0.4);
+    box-shadow: 0 4px 15px rgba(252, 165, 165, 0.1);
+    color: #fca5a5;
+}
+
+.btn-donate-alert:hover {
+    background: #fca5a5;
+    color: #1a202c;
+    box-shadow: 0 0 25px rgba(252, 165, 165, 0.4);
+    transform: translateY(-3px);
+}
+
+/* Boosty Style */
+.btn-donate-boosty {
+    border: 1px solid rgba(246, 166, 84, 0.4);
+    box-shadow: 0 4px 15px rgba(246, 166, 84, 0.1);
+    color: #f6a654;
+}
+
+.btn-donate-boosty:hover {
+    background: #f6a654;
+    color: #1a202c;
+    box-shadow: 0 0 25px rgba(246, 166, 84, 0.4);
+    transform: translateY(-3px);
+}
+
+.btn-donate-alert img, .btn-donate-boosty img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+}
+
+/* Mobile Responsive for Donate Box */
+@media (max-width: 900px) {
+    .donate-box {
+        padding: 20px 15px; /* Reduced padding */
+    }
+
+    .donate-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px; /* Reduced gap */
+    }
+    
+    .donate-title {
+        font-size: 1.5rem; /* Smaller title */
+        margin-bottom: 8px;
+    }
+    
+    .donate-actions {
+        width: 100%;
+        flex-direction: column;
+        gap: 10px; /* Reduced gap between buttons */
+    }
+    
+    .btn-donate-alert, .btn-donate-boosty {
+        justify-content: center;
+        width: 100%;
+        padding: 10px 20px; /* Smaller button padding */
+        font-size: 0.9rem; /* Smaller font */
+        height: 48px; /* Fixed height for consistency */
+    }
+
+    .btn-donate-alert img, .btn-donate-boosty img {
+        width: 20px; /* Smaller icons */
+        height: 20px;
+    }
+
+    .donate-desc {
+        font-size: 0.85rem; /* Smaller description text */
+        line-height: 1.4;
+    }
+}
+
+/* Fix for Faction Cards Overflow on Mobile */
+@media (max-width: 600px) {
+    .factions-grid-bento {
+        grid-template-columns: 1fr; /* Stack cards vertically on small screens */
+        gap: 15px;
+    }
+
+    .faction-card {
+        min-width: 0; /* Allow shrinking */
+        width: 100%; /* Ensure full available width */
+        margin: 0;
+        box-sizing: border-box; /* Include padding in width */
+    }
+    
+    .faction-card .faction-content {
+        padding: 15px;
+        align-items: center;
+        text-align: center;
+    }
+
+    .faction-card .faction-icon {
+        width: 60px; /* Smaller icons on mobile */
+        height: 60px;
+    }
+
+    .faction-card .faction-title {
+        font-size: 1.5rem;
+    }
+}
+
+/* Background Banner Modifier for Section Header (USSR) */
+.section-header-bg-ussr {
+    position: relative;
+    padding: 60px 20px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(252, 165, 165, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    
+    /* Background Image setup */
+    background-image: 
+        linear-gradient(to bottom, rgba(11, 17, 33, 0.85), rgba(11, 17, 33, 0.5)),
+        url('img/usssr-b.jpg');
+    background-size: cover;
+    background-position: center 25%;
+    background-repeat: no-repeat;
+}
+
+/* Ensure text is clearly visible above the background */
+.section-header-bg-ussr h1, 
+.section-header-bg-ussr p {
+    position: relative;
+    z-index: 2;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+}
+
+@media (max-width: 768px) {
+    .section-header-bg-ussr {
+        padding: 40px 15px;
+        background-position: center;
+    }
+
+    /* === Mobile Hero Fixes (User Request) === */
+    .hero-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 0 20px;
+        width: 100%;
+    }
+
+    .hero-military-block {
+        width: 90%;          /* Occupy ~90% */
+        max-width: 400px;    /* Max width cap */
+        min-width: 0;        /* Override desktop min-width */
+        padding: 15px 10px;  /* Reduced padding */
+        margin: 0 auto 15px auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .hero-military-title {
+        font-size: clamp(2rem, 10vw, 4.5rem); /* Adaptive font size */
+        white-space: nowrap; /* Prevent breaking if possible, or allow clamp to shrink it */
+    }
+
+    .hero-military-sub {
+        letter-spacing: 4px; /* Reduced spacing */
+        font-size: 0.9rem;
     }
 }

@@ -18,16 +18,52 @@
 </head>
 <body class="developers-page">
     <header class="header">
+        <!-- Logo -->
         <a href="index.html" class="logo">
             <img src="img/logo.png" alt="Star Logo" class="logo-img">
             <span class="logo-text"><span>S</span>tar</span>
         </a>
-
-        <nav class="top-nav">
-            <a href="index.html#rules" class="top-nav-link">Правила сервера</a>
-            <a href="index.html" class="top-nav-link">На главную</a>
-        </nav>
+        
+        <!-- Hamburger Button -->
+        <button class="hamburger-btn" id="hamburgerBtn">
+            <span class="bar bar-1"></span>
+            <span class="bar bar-2"></span>
+            <span class="bar bar-3"></span>
+        </button>
     </header>
+
+    <!-- Fullscreen Menu Overlay -->
+    <div class="fullscreen-menu" id="fullscreenMenu">
+        <nav class="menu-nav">
+            <a href="index.html" class="menu-link">
+                <img src="img/home-logo.png" alt="Home" class="menu-icon">
+                <span>Главная</span>
+            </a>
+            <a href="developers.html" class="menu-link">
+                <img src="img/Logo-team.png" alt="Team" class="menu-icon">
+                <span>Разработчики</span>
+            </a>
+            <a href="https://discord.gg/rBHWSk4eTT" target="_blank" class="menu-link">
+                <img src="img/DISCORD-Logo.png" alt="Discord" class="menu-icon">
+                <span>Discord</span>
+            </a>
+            <a href="https://t.me/ZVEZDAMEME" target="_blank" class="menu-link">
+                <img src="img/telegram-logo.png" alt="Telegram" class="menu-icon">
+                <span>Telegram</span>
+            </a>
+            
+            <div class="menu-divider"></div>
+            
+            <a href="https://www.donationalerts.com/r/starzvm" target="_blank" class="menu-link menu-donate">
+                <img src="img/donationaltres-logo.png" alt="DonationAlerts" class="menu-icon">
+                <span>Донат (Alerts)</span>
+            </a>
+            <a href="https://boosty.to/jerry_zvezdameme/donate" target="_blank" class="menu-link menu-boosty">
+                <img src="img/boosty-logo.png" alt="Boosty" class="menu-icon">
+                <span>Наш Бусти</span>
+            </a>
+        </nav>
+    </div>
 
     <main>
         <section class="team-section">

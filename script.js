@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Safety: если событие load задерживается (расширения/битые ресурсы), не держим экран загрузки долго
-    setTimeout(hidePreloader, 900);
+    setTimeout(hidePreloader, 2500);
 
     // ========================================
     // Back to Top Button
@@ -75,29 +75,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const hero = document.querySelector('.hero');
     const heroBg = document.querySelector('.hero-bg');
-    const dustContainer = document.querySelector('.dust-container');
-    const particles = document.querySelectorAll('.particle');
-    const menuToggle = document.getElementById('menu-toggle');
-    const submenuLinks = document.querySelectorAll('.submenu-link');
+    
+    // ========================================
+    // Hamburger Menu Logic
+    // ========================================
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const fullscreenMenu = document.getElementById('fullscreenMenu');
+    const menuLinks = document.querySelectorAll('.menu-link');
 
-    // Закрытие меню при клике на подпункт (ссылку подменю)
-    submenuLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            if (menuToggle) {
-                menuToggle.checked = false;
+    if (hamburgerBtn && fullscreenMenu) {
+        hamburgerBtn.addEventListener('click', () => {
+            // Toggle active class for animation and visibility
+            hamburgerBtn.classList.toggle('active');
+            fullscreenMenu.classList.toggle('active');
+            
+            // Toggle body scroll
+            if (fullscreenMenu.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
             }
         });
-    });
-    
-    // Закрытие меню при клике на затемнённую область (вне контента меню)
-    const menuOverlay = document.querySelector('.menu-overlay');
-    if (menuOverlay) {
-        menuOverlay.addEventListener('click', (e) => {
-            const menuContent = document.querySelector('.menu-content');
-            // Если клик был на overlay, но не внутри menu-content
-            if (menuContent && !menuContent.contains(e.target) && menuToggle) {
-                menuToggle.checked = false;
-            }
+
+        // Close menu when a link is clicked
+        menuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburgerBtn.classList.remove('active');
+                fullscreenMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            });
         });
     }
 
@@ -105,19 +111,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints && navigator.maxTouchPoints > 0);
     const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    // Настройки интенсивности эффекта (только фон)
+    // Настройки интенсивности эффекта (3DParallax) - УСИЛЕНО
     const settings = {
-        bg: { translateX: 30, translateY: 30 },
-        dust: { translateX: 50, translateY: 50 },
-        particles: { translateX: 80, translateY: 80 }
+        base: { translateX: 50, translateY: 50 },  // Фон (задний план)
+        top: { translateX: 120, translateY: 120 }  // Передний план (сильнее для 3D)
     };
+
+    const layerBase = document.querySelector('.layer-base');
+    const layerTop = document.querySelector('.layer-top');
 
     // Плавность анимации
     let currentX = 0;
     let currentY = 0;
     let targetX = 0;
     let targetY = 0;
-    const ease = 0.05;
+    const ease = 0.08;
 
     // Функция для плавной интерполяции
     function lerp(start, end, factor) {
@@ -127,7 +135,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Обработчик движения мыши
     function handleMouseMove(e) {
         const rect = hero.getBoundingClientRect();
-        
         // Нормализуем координаты от -1 до 1
         targetX = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
         targetY = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
@@ -141,54 +148,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Анимационный цикл
     function animate() {
-        // Плавная интерполяция
         currentX = lerp(currentX, targetX, ease);
         currentY = lerp(currentY, targetY, ease);
 
-        // Параллакс для фона (движется в противоположную сторону)
-        if (heroBg) {
-            const translateX = -currentX * settings.bg.translateX;
-            const translateY = -currentY * settings.bg.translateY;
-            heroBg.style.transform = `
-                scale(1.1)
-                translateX(${translateX}px)
-                translateY(${translateY}px)
-            `;
+        // 3D Parallax logic
+        
+        // Base Layer
+        if (layerBase) {
+            const tx = -currentX * settings.base.translateX;
+            const ty = -currentY * settings.base.translateY;
+            layerBase.style.transform = `scale(1.05) translate(${tx}px, ${ty}px)`;
         }
 
-        // Параллакс для пыли
-        if (dustContainer) {
-            const translateX = currentX * settings.dust.translateX;
-            const translateY = currentY * settings.dust.translateY;
-            dustContainer.style.transform = `
-                translateX(${translateX}px)
-                translateY(${translateY}px)
-            `;
+        // Top Layer
+        if (layerTop) {
+            const tx = -currentX * settings.top.translateX;
+            const ty = -currentY * settings.top.translateY;
+            layerTop.style.transform = `scale(1.05) translate(${tx}px, ${ty}px)`;
         }
-
-        // Параллакс для частиц
-        particles.forEach((particle, index) => {
-            const factor = 1 + (index % 3) * 0.3;
-            const translateX = currentX * settings.particles.translateX * factor;
-            const translateY = currentY * settings.particles.translateY * factor;
-            particle.style.transform = `
-                translateX(${translateX}px)
-                translateY(${translateY}px)
-            `;
-        });
-
-        // Статичный баннер: без динамической подсветки по курсору
 
         requestAnimationFrame(animate);
     }
 
-    // Инициализация
+    // Инициализация (Принудительно включаем эффект для проверки)
     if (hero) {
-        // По запросу: отключаем любые эффекты, реагирующие на курсор/сенсор
-        if (heroBg) {
-            heroBg.style.transform = 'scale(1.1)';
-            heroBg.style.transition = 'none';
-        }
+        hero.addEventListener('mousemove', handleMouseMove);
+        hero.addEventListener('mouseleave', handleMouseLeave);
+        requestAnimationFrame(animate);
     }
 
     // Переключатель языков убран: сайт остаётся только на русском.

@@ -1,122 +1,302 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="Star – Military RP: Моджахеды (тактика, снаряжение, правила фракции).">
-	<meta name="theme-color" content="#1a2332">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Star – Military RP: Кодекс Моджахедов. Традиции, тактика, иерархия.">
+    <meta name="theme-color" content="#1a2332">
 
-	<title>Моджахеды — Правила фракции | Star</title>
+    <title>Кодекс Моджахедов | Star Military RP</title>
 
-	<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
-	<link rel="icon" type="image/png" href="img/logo.png">
-	<link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
-	<link rel="shortcut icon" href="img/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+    <link rel="icon" type="image/png" href="img/logo.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+    <link rel="shortcut icon" href="img/favicon.ico">
 
-	<link rel="stylesheet" href="style.css">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Montserrat:wght@700;800;900&family=Rajdhani:wght@400;500;600;700&family=Roboto+Mono:wght@400;500;700&family=Russo+One&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Specific overrides to match the Rules Visual */
+        .faction-page-rules {
+            background-color: #0b1121;
+            padding-top: 100px;
+        }
+        
+        /* Green accent for this page title */
+        .h-green { color: #86efac; }
+        
+        /* Custom path visualization for Mujahideen */
+        .path-step {
+            border-left: 2px dashed rgba(72, 187, 120, 0.3);
+            margin-left: 20px;
+            padding-left: 30px;
+            padding-bottom: 30px;
+            position: relative;
+        }
+        
+        .path-step:last-child {
+            border-left: none;
+            padding-bottom: 0;
+        }
+        
+        .path-step::before {
+            content: '';
+            position: absolute;
+            left: -9px;
+            top: 0;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #1a2332;
+            border: 2px solid #48bb78;
+        }
+
+        .path-step:hover::before {
+            background: #48bb78;
+            box-shadow: 0 0 10px rgba(72, 187, 120, 0.5);
+        }
+    </style>
 </head>
 <body>
-	<header class="header">
-		<a href="index.html" class="logo">
-			<img src="img/logo.png" alt="Star Logo" class="logo-img">
-			<span class="logo-text"><span>S</span>tar</span>
-		</a>
-		<nav class="top-nav">
-			<a href="index.html#rules" class="top-nav-link">Правила сервера</a>
-			<a href="developers.html" target="_blank" rel="noopener" class="top-nav-link">Разработчики</a>
-			<a href="index.html" class="top-nav-link">На главную</a>
-		</nav>
-	</header>
+    <header class="header">
+        <!-- Logo -->
+        <a href="index.html" class="logo">
+            <img src="img/logo.png" alt="Star Logo" class="logo-img">
+            <span class="logo-text"><span>S</span>tar</span>
+        </a>
+        
+        <!-- Hamburger Button -->
+        <button class="hamburger-btn" id="hamburgerBtn">
+            <span class="bar bar-1"></span>
+            <span class="bar bar-2"></span>
+            <span class="bar bar-3"></span>
+        </button>
+    </header>
 
-	<main class="faction-page faction-page-muj">
-		<section class="faction-hero">
-			<div class="faction-hero-overlay"></div>
-			<div class="faction-hero-content">
-				<div class="faction-hero-badge">🌙 МОДЖАХЕДЫ</div>
-				<h1 class="faction-hero-title">Правила фракции: Моджахеды</h1>
-				<p class="faction-hero-subtitle">Засады • Мобильность • Связь • Трофеи</p>
-				<div class="faction-hero-actions">
-					<a class="btn btn-primary" href="#categories">Категории</a>
-					<a class="btn btn-outline" href="index.html#home">Выбор фракции</a>
-				</div>
-			</div>
-		</section>
+    <!-- Fullscreen Menu Overlay -->
+    <div class="fullscreen-menu" id="fullscreenMenu">
+        <nav class="menu-nav">
+            <a href="index.html" class="menu-link">
+                <img src="img/home-logo.png" alt="Home" class="menu-icon">
+                <span>Главная</span>
+            </a>
+            <a href="developers.html" class="menu-link">
+                <img src="img/Logo-team.png" alt="Team" class="menu-icon">
+                <span>Разработчики</span>
+            </a>
+            <a href="https://discord.gg/rBHWSk4eTT" target="_blank" class="menu-link">
+                <img src="img/DISCORD-Logo.png" alt="Discord" class="menu-icon">
+                <span>Discord</span>
+            </a>
+            <a href="https://t.me/ZVEZDAMEME" target="_blank" class="menu-link">
+                <img src="img/telegram-logo.png" alt="Telegram" class="menu-icon">
+                <span>Telegram</span>
+            </a>
+            
+            <div class="menu-divider"></div>
+            
+            <a href="https://www.donationalerts.com/r/starzvm" target="_blank" class="menu-link menu-donate">
+                <img src="img/donationaltres-logo.png" alt="DonationAlerts" class="menu-icon">
+                <span>Донат (Alerts)</span>
+            </a>
+            <a href="https://boosty.to/jerry_zvezdameme/donate" target="_blank" class="menu-link menu-boosty">
+                <img src="img/boosty-logo.png" alt="Boosty" class="menu-icon">
+                <span>Наш Бусти</span>
+            </a>
+        </nav>
+    </div>
 
-		<section id="categories" class="faction-categories">
-			<div class="section-container">
-				<div class="faction-categories-grid">
-					<a class="category-tile" href="#tactics">
-						<div class="category-title">Тактика</div>
-						<div class="category-desc">Засады, отход, разведка, манёвры.</div>
-					</a>
-					<a class="category-tile" href="#equipment">
-						<div class="category-title">Снаряжение</div>
-						<div class="category-desc">Оружие, трофеи, ограничения.</div>
-					</a>
-					<a class="category-tile" href="#coordination">
-						<div class="category-title">Координация</div>
-						<div class="category-desc">Связь, команды, взаимодействие групп.</div>
-					</a>
-					<a class="category-tile" href="#prisoners">
-						<div class="category-title">Плен</div>
-						<div class="category-desc">Захват, обмен, безопасность.</div>
-					</a>
-					<a class="category-tile" href="#notes">
-						<div class="category-title">Примечания</div>
-						<div class="category-desc">Дополнения и исключения.</div>
-					</a>
-				</div>
-			</div>
-		</section>
+    <main class="faction-page-rules">
+        <div class="section-container">
+            
+            <div class="section-header">
+                <h1 class="section-title h-green">☪ Фракция: Моджахеды (Ополчение)</h1>
+                <p class="section-subtitle">Защитники родной земли</p>
+            </div>
 
-		<section class="faction-sections">
-			<div class="section-container">
-				<article id="tactics" class="faction-section">
-					<h2 class="faction-section-title">Тактика</h2>
-					<ul class="faction-list">
-						<li>Основная сила — скрытность, засады и быстрый отход.</li>
-						<li>Не «беги в лоб» без причины: оценивай риск и обстановку.</li>
-						<li>Разведка и наблюдение важнее лишних перестрелок.</li>
-					</ul>
-				</article>
+            <div class="faction-quote">
+                «Твоя земля — твоя крепость, твоя вера — твоё оружие»
+            </div>
 
-				<article id="equipment" class="faction-section">
-					<h2 class="faction-section-title">Снаряжение</h2>
-					<ul class="faction-list">
-						<li>Используй экипировку фракции и сеттинга.</li>
-						<li>Трофеи допустимы только если это логично в RP и не ломает баланс.</li>
-						<li>Запрещено брать «ультра-оружие» без разрешения администрации/ивента.</li>
-					</ul>
-				</article>
+            <!-- I. Кодекс Воина Тени -->
+            <div class="rule-block rule-block-muj">
+                <div class="rule-header">
+                    <div class="rule-number">I</div>
+                    <h2 class="rule-title">Кодекс Воина Тени</h2>
+                </div>
+                <div class="rule-items">
+                    <div class="rule-item">
+                        <div class="rule-text"><strong>1.1. Долг перед землей.</strong> Каждый, кто взял в руки оружие, клянется защищать свои горы и свой народ до последней капли крови. Твое слово — это твой закон.</div>
+                    </div>
+                    
+                    <div class="rule-intro">
+                        <strong>1.2. Запретные деяния (Позор).</strong> Тот, кто совершит это, будет изгнан с позором или предан суду старейшин:
+                    </div>
 
-				<article id="coordination" class="faction-section">
-					<h2 class="faction-section-title">Координация</h2>
-					<ul class="faction-list">
-						<li>Держи связь с группой, сообщай об угрозах и перемещениях.</li>
-						<li>Не устраивай хаос в эфире: кратко и по делу.</li>
-					</ul>
-				</article>
+                    <div class="rule-item rule-item-danger">
+                        <div class="rule-text"><strong>Предательство:</strong> Указание пути врагу или сговор с оккупантами.</div>
+                    </div>
+                    <div class="rule-item rule-item-danger">
+                        <div class="rule-text"><strong>Трусость:</strong> Бегство с поля боя, когда братья истекают кровью.</div>
+                    </div>
+                    <div class="rule-item rule-item-danger">
+                        <div class="rule-text"><strong>Осквернение:</strong> Недостойное поведение в святых местах или неуважение к обычаям народа.</div>
+                    </div>
+                    <div class="rule-item rule-item-danger">
+                        <div class="rule-text"><strong>Раздор:</strong> Вражда между своими внутри общины.</div>
+                    </div>
+                </div>
+            </div>
 
-				<article id="prisoners" class="faction-section">
-					<h2 class="faction-section-title">Плен</h2>
-					<ul class="faction-list">
-						<li>Пленного охраняют и отыгрывают адекватно — без бессмысленной жестокости.</li>
-						<li>Обмен/освобождение согласуется с ситуацией и правилами сервера.</li>
-					</ul>
-				</article>
+            <!-- II. Уважение и Традиции -->
+            <div class="rule-block rule-block-muj">
+                <div class="rule-header">
+                    <div class="rule-number">II</div>
+                    <h2 class="rule-title">Уважение и Традиции</h2>
+                </div>
+                <div class="rule-items">
+                    <div class="rule-item">
+                        <div class="rule-text"><strong>2.1. Мудрость старших.</strong> У нас нет генералов, но есть те, чья мудрость острее клинка. Слово полевого командира или старейшины не обсуждается.</div>
+                    </div>
+                    <div class="rule-item">
+                        <div class="rule-text"><strong>2.2. Обращение.</strong> Мы братья по оружию. К командиру обращаются с почтением:
+                        <br><br>
+                        <em>«Уважаемый [Имя/Позывной]» или «Брат Командир».</em></div>
+                    </div>
+                </div>
+            </div>
 
-				<article id="notes" class="faction-section">
-					<h2 class="faction-section-title">Примечания</h2>
-					<ul class="faction-list">
-						<li>Спорные моменты — через администрацию (не в бою).</li>
-						<li>Ивентовые правила имеют приоритет, если объявлено заранее.</li>
-					</ul>
-				</article>
-			</div>
-		</section>
-	</main>
+            <!-- III. Путь Воина -->
+            <div class="rule-block rule-block-muj">
+                <div class="rule-header">
+                    <div class="rule-number">III</div>
+                    <h2 class="rule-title">Путь Воина (Иерархия)</h2>
+                </div>
+                
+                <div style="padding: 30px 25px;">
+                    <!-- Полевой командир -->
+                    <div class="path-step">
+                        <div class="rank-step" style="border-color: rgba(72, 187, 120, 0.3);">
+                            <div class="rank-icon" style="background: rgba(72, 187, 120, 0.15); color: #86efac; border-color: rgba(72, 187, 120, 0.3);">☪</div>
+                            <div class="rank-info">
+                                <div class="rank-title">Полевой командир (Амир)</div>
+                                <div class="rank-desc">Духовный и военный лидер. Тот, кто ведет за собой, за чью голову враг назначил награду.</div>
+                            </div>
+                        </div>
+                    </div>
 
-	<script src="script.js"></script>
+                    <!-- Наиб -->
+                    <div class="path-step">
+                        <div class="rank-step" style="border-color: rgba(72, 187, 120, 0.2);">
+                            <div class="rank-icon" style="background: rgba(72, 187, 120, 0.1); color: #86efac; border-color: rgba(72, 187, 120, 0.2);">⚔</div>
+                            <div class="rank-info">
+                                <div class="rank-title">Наиб (Помощник)</div>
+                                <div class="rank-desc">Опытный воин, возглавляющий группу в засадах. Его глаза видят сквозь туман войны.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Муджахид -->
+                    <div class="path-step">
+                        <div class="rank-step" style="border-color: rgba(72, 187, 120, 0.1);">
+                            <div class="rank-icon" style="background: rgba(72, 187, 120, 0.05); color: #86efac; border-color: rgba(72, 187, 120, 0.1);">🗡</div>
+                            <div class="rank-info">
+                                <div class="rank-title">Муджахид (Боец)</div>
+                                <div class="rank-desc">Закаленный в боях защитник. Он знает каждую тропу и каждый камень в этих горах.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Мюрид -->
+                    <div class="path-step">
+                        <div class="rank-step" style="border-color: rgba(72, 187, 120, 0.05);">
+                            <div class="rank-icon" style="background: transparent; color: #86efac; border-color: rgba(72, 187, 120, 0.1);">⛰</div>
+                            <div class="rank-info">
+                                <div class="rank-title">Мюрид (Новичок)</div>
+                                <div class="rank-desc">Тот, кто только встал на путь борьбы. Должен доказать свою преданность делом.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- IV. Специализации -->
+            <div class="rule-block rule-block-muj">
+                <div class="rule-header">
+                    <div class="rule-number">IV</div>
+                    <h2 class="rule-title">Специализации повстанцев</h2>
+                </div>
+                
+                <div class="role-cards-grid" style="padding: 20px 25px;">
+                    <!-- Охотник -->
+                    <div class="role-card-modern">
+                        <div class="role-header">
+                            <div class="role-icon">🦅</div>
+                            <div class="role-title">Охотник</div>
+                        </div>
+                        <div class="role-desc">
+                            Тень в горах. Мастер маскировки, способный часами ждать одного выстрела из старой винтовки.
+                        </div>
+                    </div>
+
+                    <!-- Гроза брони -->
+                    <div class="role-card-modern">
+                        <div class="role-header">
+                            <div class="role-icon">💥</div>
+                            <div class="role-title">Гроза брони</div>
+                        </div>
+                        <div class="role-desc">
+                            Его боится стальная техника врага. Один точный удар — и железный зверь горит.
+                        </div>
+                    </div>
+
+                    <!-- Мастер засад -->
+                    <div class="role-card-modern">
+                        <div class="role-header">
+                            <div class="role-icon">🕸</div>
+                            <div class="role-title">Мастер засад</div>
+                        </div>
+                        <div class="role-desc">
+                            Специалист по ловушкам и минам. Там, где он прошел, врагу нет пути.
+                        </div>
+                    </div>
+
+                    <!-- Стрелок -->
+                    <div class="role-card-modern">
+                        <div class="role-header">
+                            <div class="role-icon">🔫</div>
+                            <div class="role-title">Стрелок ополчения</div>
+                        </div>
+                        <div class="role-desc">
+                            Сердце восстания. Вооружен тем, что добыл в бою, и верой в победу.
+                        </div>
+                    </div>
+                    
+                    <!-- Знахарь -->
+                    <div class="role-card-modern">
+                        <div class="role-header">
+                            <div class="role-icon">🌿</div>
+                            <div class="role-title">Знахарь</div>
+                        </div>
+                        <div class="role-desc">
+                            Тот, кто знает тайны трав и древних способов исцеления. Возвращает братьев в строй даже без лекарств.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <footer class="footer-note" style="margin-top: 40px; border: none;">
+                <a class="btn btn-outline" href="index.html">На главную</a>
+            </footer>
+        </div>
+    </main>
+    
+    <script src="script.js"></script>
 </body>
 </html>

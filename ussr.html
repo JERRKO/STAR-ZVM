@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Star – Military RP: СССР (устав, снаряжение, обязанности, форма, звания).">
+    <meta name="description" content="Star – Military RP: Устав Вооруженных Сил СССР. Снаряжение, субординация, тактика.">
     <meta name="theme-color" content="#1a2332">
 
-    <title>СССР — Правила фракции | Star</title>
+    <title>Правила ВС СССР | Star Military RP</title>
 
     <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
@@ -14,125 +14,247 @@
     <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
     <link rel="shortcut icon" href="img/favicon.ico">
 
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Montserrat:wght@700;800;900&family=Rajdhani:wght@400;500;600;700&family=Roboto+Mono:wght@400;500;700&family=Russo+One&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Specific overrides for this page to match the Rules Visual */
+        .faction-page-rules {
+            background-color: #0b1121;
+            padding-top: 100px;
+        }
+    </style>
 </head>
 <body>
     <header class="header">
+        <!-- Logo -->
         <a href="index.html" class="logo">
             <img src="img/logo.png" alt="Star Logo" class="logo-img">
             <span class="logo-text"><span>S</span>tar</span>
         </a>
-        <nav class="top-nav">
-            <a href="index.html#rules" class="top-nav-link">Правила сервера</a>
-            <a href="developers.html" target="_blank" rel="noopener" class="top-nav-link">Разработчики</a>
-            <a href="index.html" class="top-nav-link">На главную</a>
-        </nav>
+        
+        <!-- Hamburger Button -->
+        <button class="hamburger-btn" id="hamburgerBtn">
+            <span class="bar bar-1"></span>
+            <span class="bar bar-2"></span>
+            <span class="bar bar-3"></span>
+        </button>
     </header>
 
-    <main class="faction-page faction-page-ussr">
-        <section class="faction-hero">
-            <div class="faction-hero-overlay"></div>
-            <div class="faction-hero-content">
-                <div class="faction-hero-badge">☭ СССР</div>
-                <h1 class="faction-hero-title">Правила фракции: СССР</h1>
-                <p class="faction-hero-subtitle">Устав • Снаряжение • Обязанности • Форма • Звания</p>
-                <div class="faction-hero-actions">
-                    <a class="btn btn-primary" href="#categories">Категории</a>
-                    <a class="btn btn-outline" href="index.html#home">Выбор фракции</a>
+    <!-- Fullscreen Menu Overlay -->
+    <div class="fullscreen-menu" id="fullscreenMenu">
+        <nav class="menu-nav">
+            <a href="index.html" class="menu-link">
+                <img src="img/home-logo.png" alt="Home" class="menu-icon">
+                <span>Главная</span>
+            </a>
+            <a href="developers.html" class="menu-link">
+                <img src="img/Logo-team.png" alt="Team" class="menu-icon">
+                <span>Разработчики</span>
+            </a>
+            <a href="https://discord.gg/rBHWSk4eTT" target="_blank" class="menu-link">
+                <img src="img/DISCORD-Logo.png" alt="Discord" class="menu-icon">
+                <span>Discord</span>
+            </a>
+            <a href="https://t.me/ZVEZDAMEME" target="_blank" class="menu-link">
+                <img src="img/telegram-logo.png" alt="Telegram" class="menu-icon">
+                <span>Telegram</span>
+            </a>
+            
+            <div class="menu-divider"></div>
+            
+            <a href="https://www.donationalerts.com/r/starzvm" target="_blank" class="menu-link menu-donate">
+                <img src="img/donationaltres-logo.png" alt="DonationAlerts" class="menu-icon">
+                <span>Донат (Alerts)</span>
+            </a>
+            <a href="https://boosty.to/jerry_zvezdameme/donate" target="_blank" class="menu-link menu-boosty">
+                <img src="img/boosty-logo.png" alt="Boosty" class="menu-icon">
+                <span>Наш Бусти</span>
+            </a>
+        </nav>
+    </div>
+
+    <main class="faction-page-rules">
+        <div class="section-container">
+            
+            <div class="section-header section-header-bg-ussr">
+                <h1 class="section-title h-red">☭ Фракция: Вооруженные Силы СССР</h1>
+                <p class="section-subtitle">Ограниченный контингент советских войск в Афганистане</p>
+            </div>
+
+            <div class="faction-quote">
+                «Верность долгу — основа победы»
+            </div>
+
+            <!-- I. Кодекс Бойца -->
+            <div class="rule-block rule-block-ussr">
+                <div class="rule-header">
+                    <div class="rule-number">I</div>
+                    <h2 class="rule-title">Кодекс Бойца и Общий Регламент</h2>
+                </div>
+                <div class="rule-items">
+                    <div class="rule-item">
+                        <div class="rule-text"><strong>1.1. Основы службы.</strong> Каждый боец Ограниченного контингента обязан свято соблюдать Воинский устав, беспрекословно выполнять приказы командования и ставить интересы подразделения выше личных.</div>
+                    </div>
+                    
+                    <div class="rule-intro">
+                        <strong>1.2. Грубые нарушения (Трибунал).</strong> Категорически запрещено:
+                    </div>
+
+                    <div class="rule-item rule-item-danger">
+                        <div class="rule-text"><strong>Дезертирство:</strong> Самовольное оставление позиций или зоны операции.</div>
+                    </div>
+                    <div class="rule-item rule-item-danger">
+                        <div class="rule-text"><strong>Саботаж:</strong> Игнорирование или публичное оспаривание приказов в боевой обстановке.</div>
+                    </div>
+                    <div class="rule-item rule-item-danger">
+                        <div class="rule-text"><strong>Нарушение режима:</strong> Бессмысленные действия, «троллинг» и любые проявления Non-RP, разрушающие атмосферу.</div>
+                    </div>
+                    <div class="rule-item rule-item-danger">
+                        <div class="rule-text"><strong>Неуставные отношения:</strong> Проявление неуважения к сослуживцам и командному составу.</div>
+                    </div>
                 </div>
             </div>
-        </section>
 
-        <section id="categories" class="faction-categories">
-            <div class="section-container">
-                <div class="faction-categories-grid">
-                    <a class="category-tile" href="#charter">
-                        <div class="category-title">Устав</div>
-                        <div class="category-desc">Дисциплина, связь, поведение в подразделении.</div>
-                    </a>
-                    <a class="category-tile" href="#equipment">
-                        <div class="category-title">Снаряжение</div>
-                        <div class="category-desc">Что можно брать, что запрещено, выдача.</div>
-                    </a>
-                    <a class="category-tile" href="#duties">
-                        <div class="category-title">Обязанности</div>
-                        <div class="category-desc">Командиры, бойцы, медик, связист.</div>
-                    </a>
-                    <a class="category-tile" href="#uniform">
-                        <div class="category-title">Форма</div>
-                        <div class="category-desc">Внешний вид и допустимые вариации.</div>
-                    </a>
-                    <a class="category-tile" href="#ranks">
-                        <div class="category-title">Звания и иерархия</div>
-                        <div class="category-desc">Кто кому подчиняется, структура.</div>
-                    </a>
-                    <a class="category-tile" href="#notes">
-                        <div class="category-title">Примечания</div>
-                        <div class="category-desc">Дополнительные правила и исключения.</div>
-                    </a>
+            <!-- II. Субординация -->
+            <div class="rule-block rule-block-ussr">
+                <div class="rule-header">
+                    <div class="rule-number">II</div>
+                    <h2 class="rule-title">Субординация и Обращение</h2>
+                </div>
+                <div class="rule-items">
+                    <div class="rule-item">
+                        <div class="rule-text"><strong>2.1. Воинское приветствие.</strong> Основа дисциплины в Советской Армии — четкая иерархия. Обращение к офицерам и сержантам строится строго по форме:
+                        <br><br>
+                        <em>«Товарищ [Звание], разрешите обратиться?»</em></div>
+                    </div>
+                    <div class="rule-item">
+                        <div class="rule-text"><strong>2.2. Форма общения.</strong> Запрещено фамильярное обращение (на «ты», по никнейму). Только уставные формулировки: «Так точно», «Никак нет», «Виноват, исправлюсь».</div>
+                    </div>
                 </div>
             </div>
-        </section>
 
-        <section class="faction-sections">
-            <div class="section-container">
-                <article id="charter" class="faction-section">
-                    <h2 class="faction-section-title">Устав</h2>
-                    <ul class="faction-list">
-                        <li>Соблюдать субординацию и приказы старших по званию.</li>
-                        <li>Не спорить в бою — спорные моменты решаются после ситуации.</li>
-                        <li>Запрещены действия, ломающие RP и дисциплину подразделения.</li>
-                    </ul>
-                </article>
+            <!-- III. Иерархия -->
+            <div class="rule-block rule-block-ussr">
+                <div class="rule-header">
+                    <div class="rule-number">III</div>
+                    <h2 class="rule-title">Иерархия Званий</h2>
+                </div>
+                
+                <div class="hierarchy-ladder">
+                    <!-- Офицерский состав -->
+                    <div class="rank-step">
+                        <div class="rank-icon">★</div>
+                        <div class="rank-info">
+                            <div class="rank-title">Офицерский состав</div>
+                            <div class="rank-desc">Высшее звено. Стратегическое планирование, управление операциями и полная ответственность за жизнь личного состава.</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Сержантский корпус -->
+                    <div class="rank-step">
+                        <div class="rank-icon">III</div>
+                        <div class="rank-info">
+                            <div class="rank-title">Сержантский корпус</div>
+                            <div class="rank-desc">Костяк подразделения. Командование отделениями на поле боя, контроль дисциплины и обучение рядовых.</div>
+                        </div>
+                    </div>
 
-                <article id="equipment" class="faction-section">
-                    <h2 class="faction-section-title">Снаряжение</h2>
-                    <ul class="faction-list">
-                        <li>Использовать доступное вооружение и экипировку фракции.</li>
-                        <li>Запрещены «уникальные» стволы без разрешения командования.</li>
-                        <li>Беречь боекомплект, учитывать логистику и выдачу.</li>
-                    </ul>
-                </article>
+                    <!-- Старший рядовой -->
+                    <div class="rank-step">
+                        <div class="rank-icon">II</div>
+                        <div class="rank-info">
+                            <div class="rank-title">Старший рядовой</div>
+                            <div class="rank-desc">Проверенные в боях специалисты. Имеют право командовать малыми группами при выполнении локальных задач.</div>
+                        </div>
+                    </div>
 
-                <article id="duties" class="faction-section">
-                    <h2 class="faction-section-title">Обязанности</h2>
-                    <ul class="faction-list">
-                        <li>Командир: ставит задачи, отвечает за связь и план.</li>
-                        <li>Боец: выполняет приказы, действует в составе группы.</li>
-                        <li>Медик: приоритет — ПМП и эвакуация раненых.</li>
-                    </ul>
-                </article>
-
-                <article id="uniform" class="faction-section">
-                    <h2 class="faction-section-title">Форма</h2>
-                    <ul class="faction-list">
-                        <li>Единый стиль формы, без «киберпанка» и несеттинговых элементов.</li>
-                        <li>Нашивки/детали допустимы, если не выбиваются из эпохи.</li>
-                    </ul>
-                </article>
-
-                <article id="ranks" class="faction-section">
-                    <h2 class="faction-section-title">Звания и иерархия</h2>
-                    <ul class="faction-list">
-                        <li>Структура отделение → взвод → командование.</li>
-                        <li>Выполнение приказов — обязательно, кроме явно суицидальных.</li>
-                    </ul>
-                </article>
-
-                <article id="notes" class="faction-section">
-                    <h2 class="faction-section-title">Примечания</h2>
-                    <p class="faction-text">Эта страница — каркас. Скажи, какие пункты ты хочешь прописать детально (список званий, точное оружие/форма), и я заполню конкретикой.</p>
-                </article>
+                    <!-- Рядовой -->
+                    <div class="rank-step">
+                        <div class="rank-icon">I</div>
+                        <div class="rank-info">
+                            <div class="rank-title">Рядовой</div>
+                            <div class="rank-desc">Фундамент армии. Исполнительный орган, обязан беспрекословно следовать за командиром и осваивать военное дело.</div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </section>
 
-        <footer class="faction-footer">
-            <div class="section-container">
+            <!-- IV. Роли -->
+            <div class="rule-block rule-block-ussr">
+                <div class="rule-header">
+                    <div class="rule-number">IV</div>
+                    <h2 class="rule-title">Боевые Специализации (Роли)</h2>
+                </div>
+                
+                <div class="role-cards-grid" style="padding: 20px 25px;">
+                    <!-- Штурмовик -->
+                    <div class="role-card-modern">
+                        <div class="role-header">
+                            <div class="role-icon">⚡</div>
+                            <div class="role-title">Штурмовик</div>
+                        </div>
+                        <div class="role-desc">
+                            Острие атаки. Мастер ближнего боя, зачистки зданий и прорыва укреплений противника.
+                        </div>
+                    </div>
+
+                    <!-- Стрелок -->
+                    <div class="role-card-modern">
+                        <div class="role-header">
+                            <div class="role-icon">🎯</div>
+                            <div class="role-title">Стрелок</div>
+                        </div>
+                        <div class="role-desc">
+                            Универсальный солдат. Обеспечивает плотность огня на средних дистанциях и прикрытие флангов.
+                        </div>
+                    </div>
+
+                    <!-- Снайпер -->
+                    <div class="role-card-modern">
+                        <div class="role-header">
+                            <div class="role-icon">👁</div>
+                            <div class="role-title">Снайпер</div>
+                        </div>
+                        <div class="role-desc">
+                            Глаза подразделения. Ликвидация приоритетных целей и ведение разведки с дальних дистанций.
+                        </div>
+                    </div>
+
+                    <!-- Пулеметчик -->
+                    <div class="role-card-modern">
+                        <div class="role-header">
+                            <div class="role-icon">🔥</div>
+                            <div class="role-title">Пулеметчик</div>
+                        </div>
+                        <div class="role-desc">
+                            Огневая мощь. Подавление огневых точек врага и удержание ключевых направлений.
+                        </div>
+                    </div>
+                    
+                    <!-- Медик -->
+                    <div class="role-card-modern">
+                        <div class="role-header">
+                            <div class="role-icon">✚</div>
+                            <div class="role-title">Военфельдшер</div>
+                        </div>
+                        <div class="role-desc">
+                            Ангел-хранитель отряда. Своевременная эвакуация и оказание помощи под огнем — его главная задача.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <footer class="footer-note" style="margin-top: 40px; border: none;">
                 <a class="btn btn-outline" href="index.html">На главную</a>
-            </div>
-        </footer>
+            </footer>
+        </div>
     </main>
-
+    
     <script src="script.js"></script>
 </body>
 </html>
