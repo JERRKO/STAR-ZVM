@@ -32,7 +32,7 @@
 }
 
 /* 3. Right Sidebar / TOC (Sticky behavior) */
-.docs-toc {
+.doc-toc {
     position: sticky;
     position: -webkit-sticky;
     top: 150px; /* Increased offset */
@@ -251,16 +251,52 @@
     }
 }
 
-@media (max-width: 992px) {
+/* Tablet - hide right TOC only */
+@media (max-width: 1024px) {
     .docs-layout {
-        grid-template-columns: 1fr; /* Stack everything */
+        grid-template-columns: 240px 1fr !important;
+        gap: 20px;
     }
-    .docs-sidebar, .docs-toc {
-        display: none; /* Hide sidebars on mobile, use menu or specialized mobile nav */
+    .doc-toc {
+        display: none !important;
     }
-    /* Simple fallback for mobile if sidebars hidden */
+}
+
+/* Mobile - hide both sidebars, full width content */
+@media (max-width: 768px) {
+    .docs-layout {
+        display: block !important;
+        padding: 0 10px !important;
+        margin-top: 70px !important;
+    }
+    .spa-sidebar, .doc-toc {
+        display: none !important;
+    }
     .docs-content {
-        width: 100%;
+        width: 100% !important;
+        padding: 0 10px !important;
+        margin: 0 !important;
+    }
+    
+    /* Better mobile text readability */
+    .rule-block {
+        padding: 12px 14px !important;
+        margin-bottom: 12px !important;
+    }
+    .rule-number {
+        font-size: 0.85rem !important;
+    }
+    .rule-desc-text {
+        font-size: 0.9rem !important;
+        line-height: 1.5 !important;
+    }
+    .content-header h1 {
+        font-size: 1.4rem !important;
+    }
+    .rules-intro-warning {
+        padding: 14px !important;
+        flex-direction: column;
+        gap: 10px;
     }
 }
 /* ...existing code... */
@@ -541,18 +577,38 @@
 /* --- SIDEBAR (Fixed Menu) --- */
 .spa-sidebar {
     width: 280px;
-    background-color: var(--bg-sidebar);
-    border-right: 1px solid var(--border-color);
+    /* Visual Style Updates */
+    background-color: #0c1326; 
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+
     display: flex;
     flex-direction: column;
     flex-shrink: 0;
-    padding: 20px;
+    padding: 20px 10px;
     overflow-y: auto;
-    height: 100vh;
+    
+    /* Sticky Positioning */
     position: sticky;
-    top: 0;
-    /* Reset margins that might interfere */
-    margin: 0 !important; 
+    top: 100px;
+    height: fit-content;
+    max-height: calc(100vh - 120px);
+    
+    margin: 0 !important;
+}
+
+/* MOBILE: Hide sidebar completely */
+@media (max-width: 900px) {
+    .spa-sidebar {
+        display: none !important;
+        visibility: hidden !important;
+        width: 0 !important;
+        height: 0 !important;
+        overflow: hidden !important;
+        position: absolute !important;
+        left: -9999px !important;
+    }
 }
 
 .sidebar-header {
@@ -677,91 +733,60 @@
 .spa-sidebar::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.2); }
 
 /* =========================================
-   FIXED STICKY LAYOUT (WHOLE PAGE SCROLL)
+   Context Labels Highlighting
    ========================================= */
-
-/* 0. Сброс блокировки скролла */
-body.docs-page {
-    overflow: visible !important;   /* Разрешаем скролл окна */
-    height: auto !important;        /* Высота по содержимому */
-    display: block !important;      /* Возвращаем блочный контекст */
-}
-
-.header {
-    margin-bottom: 0 !important;    /* Отступ регулируем в layout */
-}
-
-/* 1. Главный контейнер (убираем overflow: hidden) */
-.docs-layout {
-    display: flex !important;
-    flex-direction: row;            /* Явно указываем направление */
-    flex: 1; 
-    height: auto !important;
-    max-width: 1400px;
-    margin: 80px auto 40px;
-    padding: 0 40px;
-    gap: 40px;
-    align-items: start; /* Важно: чтобы колонки не растягивались на всю высоту */
-    overflow: visible !important;   /* Критично для sticky */
-}
-
-/* 2. Левая панель (делаем sticky) */
-.spa-sidebar {
-    width: 280px;
-    position: sticky !important;
-    top: 100px;
-    height: fit-content;
-    max-height: calc(100vh - 120px);
-    overflow-y: auto;
-    flex-shrink: 0;
-    
-    /* Visual Style Updates */
-    background-color: #0c1326; /* Более глубокий темный цвет */
-    border: 1px solid rgba(255, 255, 255, 0.04); /* Тонкая рамка */
-    border-radius: 16px; /* Закругления для эстетики */
-    box-shadow: 0 8px 30px rgba(0,0,0,0.4); /* Эффект парения */
-    padding: 20px 10px; /* Отступы внутри панели */
-    margin: 0 !important;
-}
-
-/* 3. Центральный блок (убираем внутренний скролл) */
-.docs-content {
-    flex: 1;
-    min-width: 0;
-    padding: 0 20px;
-    height: auto !important; /* Пусть растет по контенту */
-    overflow: visible !important; /* Убираем hidden или auto */
-}
-
-/* 4. Правая панель (TOC) */
-.docs-toc {
-    width: 250px;
-    position: sticky !important;
-    top: 100px;
-    align-self: flex-start;
-    height: fit-content;
-    max-height: calc(100vh - 120px);
-    overflow-y: auto;
-    margin: 0 !important;
-    padding-left: 20px;
-    border-left: 1px solid rgba(255,255,255,0.05);
-}
-
-/* Scrollbars */
-.spa-sidebar::-webkit-scrollbar,
-.docs-toc::-webkit-scrollbar {
-    width: 6px;
-    background: #0f0f0f;
-}
-
-.spa-sidebar::-webkit-scrollbar-thumb {
-    background: #333;
-    border-radius: 3px;
-}
-
-/* Context Labels Highlighting */
 .text-note { color: #fbbf24; font-weight: bold; } /* Amber */
 .text-complement { color: #60a5fa; font-weight: bold; } /* Blue */
 .text-exception { color: #34d399; font-weight: bold; } /* Emerald */
 .text-example { color: #a78bfa; font-weight: bold; } /* Purple */
+
+/* =========================================
+   FINAL MOBILE OVERRIDE - MUST BE LAST!
+   ========================================= */
+@media screen and (max-width: 900px) {
+    .spa-sidebar,
+    .doc-toc,
+    aside.spa-sidebar,
+    aside.doc-toc {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        width: 0 !important;
+        height: 0 !important;
+        max-width: 0 !important;
+        max-height: 0 !important;
+        overflow: hidden !important;
+        position: absolute !important;
+        left: -99999px !important;
+        pointer-events: none !important;
+    }
+    
+    .docs-layout {
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 10px !important;
+        margin: 60px 0 0 0 !important;
+    }
+    
+    .docs-content {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 5px !important;
+        margin: 0 !important;
+    }
+
+    /* Center text for mobile */
+    .rule-block, .content-header, .rules-intro-warning, .rule-desc-text {
+        text-align: center !important;
+    }
+
+    .rule-header {
+        justify-content: center !important;
+    }
+
+    .rule-punishment {
+        justify-content: center !important;
+    }
+}
 

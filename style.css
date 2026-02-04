@@ -4736,6 +4736,7 @@ html, body {
     text-shadow: 0 2px 10px rgba(0,0,0,0.5);
     background: linear-gradient(90deg, #fca5a5, #f87171);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
