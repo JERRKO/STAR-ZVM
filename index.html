@@ -41,6 +41,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="home-page">
+
     <!-- ========================================
          Preloader
          ======================================== -->
@@ -118,13 +119,9 @@
             
             <div class="menu-divider"></div>
             
-            <a href="https://www.donationalerts.com/r/starzvm" target="_blank" class="menu-link menu-donate">
+            <a href="https://boosty.to/jerry_zvezdameme/donate" target="_blank" class="menu-link menu-donate">
                 <img src="img/donationaltres-logo.png" alt="DonationAlerts" class="menu-icon">
-                <span>Донат (Alerts)</span>
-            </a>
-            <a href="https://boosty.to/jerry_zvezdameme/donate" target="_blank" class="menu-link menu-boosty">
-                <img src="img/boosty-logo.png" alt="Boosty" class="menu-icon">
-                <span>Наш Бусти</span>
+                <span>Донат</span>
             </a>
         </nav>
     </div>
@@ -132,9 +129,15 @@
     <!-- ========================================
          Hero Section with Parallax
          ======================================== -->
-    <section class="hero parallax-container">
-        <!-- Parallax Layers -->
+    <section class="hero parallax-container" id="heroSection">
+        
+        <!-- 1. Meteor Rain Layer (Canvas) -->
+        <canvas id="meteorCanvas" class="parallax-layer layer-meteors"></canvas>
+
+        <!-- 2. Base Image Layer (Optional - blending) -->
         <div class="parallax-layer layer-base"></div>
+        
+        <!-- 3. Top Image Layer (Soldiers/Heli) -->
         <div class="parallax-layer layer-top"></div>
         
         <!-- Overlay -->
@@ -143,17 +146,17 @@
         <!-- Content (Front Layer) -->
         <div class="hero-content">
             <div class="hero-military-block">
-                <h1 class="hero-military-title">MILITARY RP</h1>
+                <h1 class="hero-military-title">АФГАНИСТАН РП</h1>
             </div>
             <div class="hero-military-sub">
-                GOREBOX SERVERS
+                MILITARY ROLEPLAY
             </div>
             
             <div class="hero-divider"></div>
             
             <div class="hero-cta">
                 <a href="https://discord.gg/rBHWSk4eTT" target="_blank" rel="noopener" class="btn btn-primary" data-i18n="hero.join">ПРИСОЕДИНИТЬСЯ</a>
-                <a href="rules-general.html" class="btn btn-outline" data-i18n="hero.rules">ПРАВИЛА СЕРВЕРА</a>
+                <a href="rules-general.html" class="btn btn-outline" data-i18n="hero.rules"><span class="btn-icon">🛈</span> ПРАВИЛА    </a>
             </div>
         </div>
         
@@ -164,125 +167,24 @@
     </section>
 
     <!-- ========================================
-         Main Bento Grid Layout (Quick Start, Factions, Rules)
+         About Project Section
          ======================================== -->
-    <section class="main-bento-grid">
-        <div class="section-container">
+    <section class="about-project" id="aboutProject">
+        <div class="about-container">
+            <!-- Photo Left -->
+            <div class="about-photo">
+                <img src="img/logo.png" alt="ZVM Star Project Logo" class="about-img">
+            </div>
             
-            <!-- Grid Wrapper -->
-            <div class="bento-wrapper">
-
-                <!-- 1. Quick Start Row (Top) -->
-                <div class="bento-box quick-start-box reveal-on-scroll">
-                    <div class="bento-header">КМБ Курс-Молодого-Бойца</div>
-                    <div class="qs-grid">
-                        <a class="qs-card" href="https://discord.gg/rBHWSk4eTT" target="_blank" rel="noopener">
-                            <div class="qs-icon">
-                                <img src="img/DISCORD-Logo.png" alt="Discord" style="width: 32px; height: 32px; object-fit: contain;">
-                            </div>
-                            <div class="qs-texts">
-                                <span class="qs-step">1. ЗАЙДИ В DISCORD</span>
-                                <span class="qs-desc">Присоединяйся к серверу для начала игры.</span>
-                            </div>
-                        </a>
-                        <a class="qs-card" href="#rules">
-                            <div class="qs-icon">📝</div>
-                            <div class="qs-texts">
-                                <span class="qs-step">2. ПОДАЙ ЗАЯВКУ</span>
-                                <span class="qs-desc">Восрой Discord и затем подавай заявку на WL.</span>
-                            </div>
-                        </a>
-                    </div>
+            <!-- Text Right -->
+            <div class="about-content">
+                <h2 class="about-title">АФГАНСКАЯ <span>ВОЙНА</span></h2>
+                
+                <div class="about-desc">
+                    <p><strong>ZVM Star</strong> — это сообщество и проект, созданный для качественного Military RolePlay. Мы делаем упор на серьёзную RP-отыгровку, атмосферу военного конфликта и продуманный игровой процесс.</p>
                 </div>
 
-                <!-- 2. Factions (Bottom Left) -->
-                <div class="bento-box factions-box reveal-on-scroll reveal-delay-1">
-                    <div class="bento-header">ВЫБЕРИ СВОЮ СТОРОНУ</div>
-                    <div class="factions-grid-bento">
-                        
-                        <!-- USSR Card -->
-                        <a href="ussr.html" class="faction-card ussr">
-                          <div class="faction-content">
-                            <!-- Image Logo -->
-                            <img src="img/ussr-logo.png" alt="СССР" class="faction-icon">
-                            <h3 class="faction-title">СССР</h3>
-                            <p class="faction-desc">Дисциплина и мощь. Защита интересов в регионе.</p>
-                          </div>
-                          <div class="bottom-glow"></div>
-                        </a>
-
-                        <!-- Mujahideen Card -->
-                        <a href="mujahideen.html" class="faction-card muj">
-                          <div class="faction-content">
-                            <img src="img/muj-logo.png" alt="Моджахеды" class="faction-icon">
-                            <h3 class="faction-title">МОДЖАХЕДЫ</h3>
-                            <p class="faction-desc">Партизанская война. Знание местности и засады.</p>
-                          </div>
-                          <div class="bottom-glow"></div>
-                        </a>
-
-                    </div>
-                </div>
-
-                <!-- 3. Rules (Right Column) -->
-                <div class="bento-box rules-box reveal-on-scroll reveal-delay-2">
-                    <div class="bento-header">ПРАВИЛА И РЕГЛАМЕНТ</div>
-                    <div class="rules-list-bento">
-                        <a href="rules-general.html" class="rule-item-bento">
-                            <div class="r-icon">📘</div>
-                            <div class="r-info">
-                                <div class="r-title">ОБЩИЕ ПРАВИЛА</div>
-                                <div class="r-sub">Сеттинг, общение, bans.</div>
-                            </div>
-                        </a>
-                        <a href="rules-rp.html" class="rule-item-bento">
-                            <div class="r-icon">🎭</div>
-                            <div class="r-info">
-                                <div class="r-title">RP ОТЫГРОВКА</div>
-                                <div class="r-sub">IC/OOC, MetaGaming.</div>
-                            </div>
-                        </a>
-                        <a href="rules-combat.html" class="rule-item-bento">
-                            <div class="r-icon">⚠️</div>
-                            <div class="r-info">
-                                <div class="r-title">БОЕВЫЕ ПРАВИЛА</div>
-                                <div class="r-sub">Бой, плен, медицина.</div>
-                            </div>
-                            <div class="btn-xs-accent">ПОДРОБНЕЕ</div>
-                        </a>
-                        
-                        <!-- Commands (Soon) -->
-                        <div class="rule-item-bento" style="cursor: default; opacity: 0.8;">
-                            <div class="r-icon">⌨️</div>
-                            <div class="r-info">
-                                <div class="r-title">КОМАНДЫ</div>
-                                <div class="r-sub">В разработке</div>
-                            </div>
-                            <div class="btn-xs-accent" style="background: transparent; border: 1px solid #71717a; color: #a1a1aa;">СКОРО</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 4. Support / Donate (Full Width Bottom) -->
-                <div class="bento-box donate-box reveal-on-scroll reveal-delay-3">
-                    <div class="donate-content">
-                        <div class="donate-text">
-                            <h3 class="donate-title">ПОДДЕРЖАТЬ ПРОЕКТ</h3>
-                            <p class="donate-desc">Получи уникальные <span>VIP статусы.</span> Твой вклад помогает серверу развиваться!</p>
-                        </div>
-                        <div class="donate-actions">
-                            <a href="https://www.donationalerts.com/r/starzvm" target="_blank" class="btn btn-donate-alert">
-                                <img src="img/donationaltres-logo.png" alt="DA">
-                                DonationAlerts
-                            </a>
-                            <a href="https://boosty.to/jerry_zvezdameme/donate" target="_blank" class="btn btn-donate-boosty">
-                                <img src="img/boosty-logo.png" alt="Boosty">
-                                Boosty
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
+                <a href="https://discord.gg/rBHWSk4eTT" target="_blank" rel="noopener" class="btn btn-primary">ПРИСОЕДИНИТЬСЯ</a>
             </div>
         </div>
     </section>
@@ -306,6 +208,7 @@
         </p>
     </footer>
 
+    <!-- Three.js Library - Removed -->
     <!-- 3D Parallax Effect -->
     <script src="script.js"></script>
 </body>

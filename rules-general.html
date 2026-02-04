@@ -1,18 +1,15 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Star — Military RP: Afghanistan. Общие правила сервера.">
+    <meta name="description" content="Star — Military RP: Afghanistan. Полный свод правил сервера.">
     <meta name="theme-color" content="#1a2332">
 
-    <title>Общие правила | Star</title>
+    <title>Правила сервера | Star</title>
 
-    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="img/logo.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
-    <link rel="shortcut icon" href="img/favicon.ico">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,8 +18,10 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="style.css">
+    <!-- Docs Specific Styles -->
+    <link rel="stylesheet" href="docs_styles.css">
 </head>
-<body>
+<body class="docs-page">
     <header class="header">
         <!-- Logo -->
         <a href="index.html" class="logo">
@@ -53,112 +52,148 @@
                 <img src="img/DISCORD-Logo.png" alt="Discord" class="menu-icon">
                 <span>Discord</span>
             </a>
-            <a href="https://t.me/ZVEZDAMEME" target="_blank" class="menu-link">
-                <img src="img/telegram-logo.png" alt="Telegram" class="menu-icon">
-                <span>Telegram</span>
-            </a>
-            
-            <div class="menu-divider"></div>
-            
-            <a href="https://www.donationalerts.com/r/starzvm" target="_blank" class="menu-link menu-donate">
-                <img src="img/donationaltres-logo.png" alt="DonationAlerts" class="menu-icon">
-                <span>Донат (Alerts)</span>
-            </a>
-            <a href="https://boosty.to/jerry_zvezdameme/donate" target="_blank" class="menu-link menu-boosty">
-                <img src="img/boosty-logo.png" alt="Boosty" class="menu-icon">
-                <span>Наш Бусти</span>
-            </a>
         </nav>
     </div>
 
-    <main class="rules-section">
-        <div class="section-container">
-            <div class="section-header">
-                <h1 class="section-title">📘 Общие правила</h1>
-                <p class="section-subtitle">База: поведение, общение, администрация, запреты</p>
-            </div>
+    <!-- 3-COLUMN LAYOUT -->
+    <div class="docs-layout">
+        
+        <!-- LEFT SIDEBAR (NEW DASHBOARD STYLE) -->
+        <aside class="spa-sidebar">
+            <div class="sidebar-header">STAR</div>
+            
+            <div class="menu-wrapper">
+                
+                <!-- Simple Link: Home -->
+                <a href="index.html" class="menu-item">
+                     <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="margin-right: 10px;"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+                    Главная
+                </a>
 
-            <div class="rules-intro-block">
-                <p><strong>Важно:</strong> незнание правил не освобождает от ответственности. Если есть спор — уточняй у администрации.</p>
-            </div>
+                <!-- Accordion: Rules Sections -->
+                <div class="accordion-group expanded" id="group-rules">
+                    <div class="accordion-header" onclick="toggleAccordion('group-rules')">
+                        <div style="display:flex; align-items:center;">
+                            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="margin-right: 10px;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                            Правила
+                        </div>
+                        <!-- Arrow Icon -->
+                        <svg class="accordion-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </div>
+                    <div class="accordion-content">
+                        <!-- Links to anchors on this page -->
+                        <a href="#rules-general" class="sub-link">Ⅰ. Общие</a>
+                        <a href="#rules-terms" class="sub-link">Ⅱ. Термины</a>
+                        <a href="#rules-chat" class="sub-link">Ⅲ. Чат</a>
+                    </div>
+                </div>
 
-            <!-- 1.1 Сеттинг -->
-            <div class="rule-block">
-                <div class="rule-header">
-                    <div class="rule-number">1.1</div>
-                    <h2 class="rule-title">Сеттинг и обязательность правил</h2>
-                </div>
-                <div class="rule-items">
-                    <div class="rule-item">
-                        <div class="rule-text"><strong>1.1.1</strong> Сервер действует в сеттинге Афганской войны. Все действия персонажей должны соответствовать эпохе и выбранной роли.</div>
-                    </div>
-                    <div class="rule-item">
-                        <div class="rule-text"><strong>1.1.2</strong> Незнание правил не освобождает от ответственности.</div>
-                    </div>
-                    <div class="rule-item">
-                        <div class="rule-text"><strong>1.1.3</strong> Если ситуация не описана в правилах, решение принимает администрация, руководствуясь логикой и здравым смыслом.</div>
-                    </div>
-                </div>
             </div>
+        </aside>
 
-            <!-- 1.2 Культура общения -->
-            <div class="rule-block">
-                <div class="rule-header">
-                    <div class="rule-number">1.2</div>
-                    <h2 class="rule-title">Культура общения</h2>
-                </div>
-                <div class="rule-items">
-                    <div class="rule-item">
-                        <div class="rule-text"><strong>1.2.1</strong> Оскорбления игроков, токсичность, дискриминация и провокации запрещены.</div>
+        <!-- MAIN CONTENT -->
+        <main class="docs-content custom-scrollbar">
+            
+            <!-- SECTION: GENERAL -->
+            <div id="section-general" class="rule-section-content active">
+                
+                 <!-- PUNISHMENT LEGEND -->
+                <div class="rules-intro-warning" style="border-left-color: #fca5a5; background: rgba(239, 68, 68, 0.1);">
+                    <div class="warning-text">
+                        <strong style="color: #fca5a5; display:block; margin-bottom:10px; font-size:1.1rem;">СТЕПЕНИ НАКАЗАНИЯ</strong>
+                        <ul style="list-style: none; padding: 0; margin: 0; line-height: 1.6;">
+                            <li><span style="color: #fbbf24;">★☆☆☆☆</span> - Предупреждение (Мут/Кик/Джаил)</li>
+                            <li><span style="color: #f59e0b;">★★☆☆☆</span> - Малое нарушение (Джаил/Бан до 2 дней)</li>
+                            <li><span style="color: #ea580c;">★★★☆☆</span> - Среднее нарушение (Бан до 2-х недель)</li>
+                            <li><span style="color: #dc2626;">★★★★☆</span> - Серьезное нарушение (Бан до месяца)</li>
+                            <li><span style="color: #991b1b;">★★★★★</span> - Критическое нарушение (Перманентный бан / обнуление аккаунта)</li>
+                        </ul>
+                        <br>
+                        <em>Администратор вправе увеличить срок наказания при рецидиве или уменьшить, если не было злого умысла.</em>
                     </div>
-                    <div class="rule-item">
-                        <div class="rule-text"><strong>1.2.2</strong> Общение с администрацией должно быть вежливым и корректным.</div>
-                    </div>
                 </div>
+
+                <div class="content-header" id="rules-general">
+                    <h1>Ⅰ. Общие правила сервера</h1>
+                </div>
+
+                <div class="rule-block"><div class="rule-header"><div class="rule-number">1.1.0П</div></div><div class="rule-desc-text">Незнание правил не освобождает от ответственности.</div></div>
+                <div class="rule-block"><div class="rule-header"><div class="rule-number">1.2.ОП</div></div><div class="rule-desc-text">Играя на наших серверах, Вы соглашаетесь с правилами, написанными здесь.</div></div>
+                <div class="rule-block"><div class="rule-header"><div class="rule-number">1.3.ОП</div></div><div class="rule-desc-text">Запрещено нарушать работу сервера.<br><span class='text-note'>Примечание</span>: Использование читов, сторонних ПО (Хранение в т.ч.)]</div><div class="rule-punishment" style="margin-top:5px; color:#fca5a5; font-size:0.9em;">Наказание: ★★★★★</div></div>
+                <div class="rule-block"><div class="rule-header"><div class="rule-number">1.3.1.ОП</div></div><div class="rule-desc-text">Запрещено мешать работе администрации проекта, спамить бестолковыми запросами/тикетами.</div><div class="rule-punishment" style="margin-top:5px; color:#fca5a5; font-size:0.9em;">Наказание: ★★☆☆☆</div></div>
+                <div class="rule-block"><div class="rule-header"><div class="rule-number">1.4.ОП</div></div><div class="rule-desc-text">Обход бана на сервере или в интеграциях путём захода с других аккаунтов - запрещён.</div><div class="rule-punishment" style="margin-top:5px; color:#fca5a5; font-size:0.9em;">Наказание: ★★★★★</div></div>
+                <div class="rule-block"><div class="rule-header"><div class="rule-number">1.5.ОП</div></div><div class="rule-desc-text">Игроки должны сообщать администрации о важных проблемах, способных нарушить работу сервера и проекта в целом или получить несправедливое преимущество, а также об этих намерениях от 3-х лиц.</div><div class="rule-punishment" style="margin-top:5px; color:#fca5a5; font-size:0.9em;">Наказание: блокировка на усмотрение ЗГА, ГА, Куратора</div></div>
+                <div class="rule-block"><div class="rule-header"><div class="rule-number">1.6.ОП</div></div><div class="rule-desc-text">Запрещено продавать/обменивать игровые деньги, звания и предметы на реальные и их эквиваленты.<br><span class='text-note'>Примечание</span>: продавать донатные предметы за внутриигровую валюту разрешено. Например, продать ВИП на месяц за 100к игровых долларов, т.д и т.п.]</div><div class="rule-punishment" style="margin-top:5px; color:#fca5a5; font-size:0.9em;">Наказание: ★★★★★</div></div>
+                <div class="rule-block"><div class="rule-header"><div class="rule-number">1.7.ОП</div></div><div class="rule-desc-text">Запрещено использовать баги/недоработки сервера/постороннее ПО, дающие преимущество над другими игроками, а также их сокрытие от администрации или разглашение другим игрокам.<br><span class='text-note'>Примечание</span>: В случае, если вы нашли подобное, вам следует написать Старшей администрации, чтобы мы это исправили/приняли меры]</div><div class="rule-punishment" style="margin-top:5px; color:#fca5a5; font-size:0.9em;">Наказание: ★★★☆☆-★★★★★</div></div>
+                <div class="rule-block"><div class="rule-header"><div class="rule-number">1.8.ОП</div></div><div class="rule-desc-text">Запрещена реклама посторонних ресурсов любыми видами и способами, в том числе через группы напрямую относящаяся к серверу, рассылка в личные сообщения и другими методами.</div><div class="rule-punishment" style="margin-top:5px; color:#fca5a5; font-size:0.9em;">Наказание: ★★★★★</div></div>
+                <div class="rule-block"><div class="rule-header"><div class="rule-number">1.9.ОП</div></div><div class="rule-desc-text">Старший состав (ЗГА/ГА/КУРАТОР/РУКОВОДСТВО) имеет право выносить вердикт, сроки наказаний, а также менять их по своему усмотрению.</div></div>
+                <div class="rule-block"><div class="rule-header"><div class="rule-number">1.10.ОП</div></div><div class="rule-desc-text">Запрещено выдавать себя за представителей администрации, использовать их никнеймы (или похожие).</div></div>
+                <div class="rule-block"><div class="rule-header"><div class="rule-number">1.11.ОП</div></div><div class="rule-desc-text">Запрещено вводить в заблуждение (обманывать) лицо, рассматривающее вашу жалобу или администрацию проекта в целом.</div><div class="rule-punishment" style="margin-top:5px; color:#fca5a5; font-size:0.9em;">Наказание: ★★★☆☆</div></div>
+                <div class="rule-block"><div class="rule-header"><div class="rule-number">1.12.ОП</div></div><div class="rule-desc-text">Жалоба подается только от первого лица в течение 48 часов.</div></div>
+                <div class="rule-block"><div class="rule-header"><div class="rule-number">1.13.ОП</div></div><div class="rule-desc-text">Единственное доказательство вашей невиновности/виновности или другого человека это неотредактированная демонстрация экрана в исходном виде, если логи этого не подтверждают или не могут подтвердить. (время обжалования ЛЮБОГО бана не более 24 ч с момента выдачи)</div></div>
+                <div class="rule-block"><div class="rule-header"><div class="rule-number">1.14.ОП</div></div><div class="rule-desc-text">Место спавна игроков считается зоной пониженого РП. В данной зоне действуют все правила, кроме NonRP Talk.</div></div>
+                <div class="rule-block"><div class="rule-header"><div class="rule-number">1.15.ОП</div></div><div class="rule-desc-text">Запрещено подрывать авторитет Старшей Администрации.</div><div class="rule-punishment" style="margin-top:5px; color:#fca5a5; font-size:0.9em;">Наказание: блокировка на усмотрение ЗГА и вышестоящих</div></div>
+                <div class="rule-block"><div class="rule-header"><div class="rule-number">1.16.ОП</div></div><div class="rule-desc-text">Запрещается взаимодействовать с администрацией сервера в RP процессе. Наносить урон, разговаривать или окликать администрацию будет являться нарушением!</div><div class="rule-punishment" style="margin-top:5px; color:#fca5a5; font-size:0.9em;">Наказание: jail на 2 часа</div></div>
+                <div class="rule-block"><div class="rule-header"><div class="rule-number">1.17.ОП</div></div><div class="rule-desc-text">На разборках от каждой стороны в жалобе требуется описать всю ситуацию и прикрепить к ней доказательства в ходе которых администратор разбирающий вашу жалобу будет выносить вердикт. На разборках все доказательства может требовать только администратор. На разборках так-же запрещено ссылаться на несуществующие правила или на слова администрации сервера без доказательств на сказанное. Например: мне разрешил главный администратор.</div><div class="rule-punishment" style="margin-top:5px; color:#fca5a5; font-size:0.9em;">Наказание: ★★★☆☆</div></div>
+                <div class="rule-block"><div class="rule-header"><div class="rule-number">1.18.ОП</div></div><div class="rule-desc-text">Запрещено оспаривать вердикт старшей и высшей администрации сервера. Разрешено подать жалобу в специально созданные каналы или, если вы не согласны с решением в жалобе, вы можете написать вышестоящему члену персонала с прикреплением фактов, аргументов и доказательств, которые подтвердят вашу невиновность.<br><span class='text-note'>Примечание</span>: Решения руководства категорически запрещено оспаривать. Вы можете узнать лично и адекватно получить на свой вопрос - ответ, нежели пытаться что-то доказать или оскорблять после этого.)</div></div>
+                <div class="rule-block"><div class="rule-header"><div class="rule-number">1.19.ОП</div></div><div class="rule-desc-text">Запрещено создание отдельных Discord серверов для подразделений фракций или отделов. Используются основные Discord сервера!</div><div class="rule-punishment" style="margin-top:5px; color:#fca5a5; font-size:0.9em;">Наказание: Расформирование тех для кого предусмотрен Discord и строгий выговор командованию подразделения</div></div>
+
+                <div style="height: 60px;"></div>
+
+                <div class="content-header" id="rules-terms">
+                    <h1>Ⅱ. Свод терминов</h1>
+                </div>
+
+                <div class="rule-block"><div class="rule-header"><div class="rule-number">2.1.T</div> <h2 class="rule-title">WarAbuse/WA</h2></div><div class="rule-desc-text">Нарушение правил войны.<br><span class='text-note'>Примечание</span>: КД на любое WA событие отсчитывается после завершения прошлого WA. Дополнение: Перед проведением WA события нужно обязательно дождаться принятия тикета и одобрения на проведение WA события Администрацией]</div><div class="rule-punishment" style="margin-top:5px; color:#fca5a5; font-size:0.9em;">Наказание: ★★☆☆☆</div></div>
+                <div class="rule-block"><div class="rule-header"><div class="rule-number">2.2.T</div> <h2 class="rule-title">NonRP</h2></div><div class="rule-desc-text">Запрещено неролевое поведение своей профессии, портящий атмосферу игры.<br><span class='text-example'>Пример</span>: использование тяжелого оружия за гражданского]</div><div class="rule-punishment" style="margin-top:5px; color:#fca5a5; font-size:0.9em;">Наказание: ★★☆☆☆</div></div>
+                <div class="rule-block"><div class="rule-header"><div class="rule-number">2.3.T</div> <h2 class="rule-title">NonRP Talk</h2></div><div class="rule-desc-text">Запрещено использовать голосовой/текстовый RP чат, неимеющий отношения к персонажу, истории, происходящей ситуации и т.д в случае, если это мешает RP процессу или если попросили перестать так делать. [Например: Разговор по RP и резкий вопрос - "по NONRP разговариваешь"?]</div><div class="rule-punishment" style="margin-top:5px; color:#fca5a5; font-size:0.9em;">Наказание: ★★☆☆☆</div></div>
+                <div class="rule-block"><div class="rule-header"><div class="rule-number">2.4.T</div> <h2 class="rule-title">Spawn Rule</h2></div><div class="rule-desc-text">Правило поведения в спавн комнатах. Запрещаются любые враждебные действия по отношению к игрокам за дверьми штабов фракций во время WA событий.<br><span class='text-note'>Примечание</span>: За NonRP оскорбления предусмотрено наказание в соответствии с правилом 3.40]</div><div class="rule-punishment" style="margin-top:5px; color:#fca5a5; font-size:0.9em;">Наказание: ★★☆☆☆</div></div>
+                <div class="rule-block"><div class="rule-header"><div class="rule-number">2.5.T</div> <h2 class="rule-title">RDM</h2></div><div class="rule-desc-text">Намеренное убийство от 5-х +игроков без причины.</div><div class="rule-punishment" style="margin-top:5px; color:#fca5a5; font-size:0.9em;">Наказание: ★★★☆☆</div></div>
+                <div class="rule-block"><div class="rule-header"><div class="rule-number">2.6.T</div> <h2 class="rule-title">AFK</h2></div><div class="rule-desc-text">Запрещено намеренно вставать в AFK, для того чтобы уйти от какой либо RP ситуации.<br><span class='text-exception'>Исключение</span>: Если вам очень срочно нужно отойти то либо получите одобрение от участников какой либо ситуации в который вы также присутствуете, либо встаньте в специально отведенное для этого место!]</div><div class="rule-punishment" style="margin-top:5px; color:#fca5a5; font-size:0.9em;">Наказание: ★★☆☆☆</div></div>
+                <div class="rule-block"><div class="rule-header"><div class="rule-number">2.7.T</div> <h2 class="rule-title">MetaGaming</h2></div><div class="rule-desc-text">Запрещено использовать / передавать любую RP информацию, полученную не игровым способом.<br><span class='text-complement'>Дополнение</span> 1: запрещено использование информации из Discord, TeamSpeak и прочих видов связи, включая /рт.]<br><span class='text-complement'>Дополнение</span> 2: использование информации из /advert и /afg - разрешено.]<br><span class='text-example'>Пример</span>: Ваш друг, попавший в плен, сообщил Вам об этом через личные сообщения, после чего вы подали тикет на спасательную операцию. В данном случае ваш товарищ получает RPK и блокировку на 5 часов, а Вы получаете блокировку на 6 часов.]</div><div class="rule-punishment" style="margin-top:5px; color:#fca5a5; font-size:0.9em;">Наказание: ★★☆☆☆</div></div>
+                <div class="rule-block"><div class="rule-header"><div class="rule-number">2.8.T</div> <h2 class="rule-title">Leave RP</h2></div><div class="rule-desc-text">Запрещено покидать сервер при обыгрывании рп ситуации. Перед выдачей наказания администрация должна удостовериться в том, что вы точно были в RP ситуации и она была активна. От вас требуется при выходе с сервера указать в чате в какой срок вы покинете сервер.<br><span class='text-example'>Пример</span>: Вас попытались взять в плен и вы убежали, а после вышли с сервера по причине испуга или отказа от пленения)</div><div class="rule-punishment" style="margin-top:5px; color:#fca5a5; font-size:0.9em;">Наказание: ★★☆☆☆</div></div>
+                <div class="rule-block"><div class="rule-header"><div class="rule-number">2.9.T</div> <h2 class="rule-title">RunRule</h2></div><div class="rule-desc-text">Запрещено покидать/выходить с сервера во время разборок.<br><span class='text-exception'>Исключение</span>: Правило не будет считаться нарушенным если игрок покинул сервер не по своей воле. Игрок обязуется написать администратору в дискорд в течение 10 минут.)</div><div class="rule-punishment" style="margin-top:5px; color:#fca5a5; font-size:0.9em;">Наказание: автоматический бан по изначальному нарушению + 15 часов к сроку бана</div></div>
+                <div class="rule-block"><div class="rule-header"><div class="rule-number">2.10.T</div> <h2 class="rule-title">RobAbuse</h2></div><div class="rule-desc-text">Запрещено грабить игроков на сумму больше чем 1000$. (КД между ограблениями 4 часа)</div><div class="rule-punishment" style="margin-top:5px; color:#fca5a5; font-size:0.9em;">Наказание: ★★☆☆☆</div></div>
+                <div class="rule-block"><div class="rule-header"><div class="rule-number">2.11.T</div> <h2 class="rule-title">PainRP</h2></div><div class="rule-desc-text">Отыгровка боли, страха и связанное с этим. Администрация в праве наблюдать за процессом и если она посчитает ваши отыгровки неправильными, вас могут наказать.<br><span class='text-example'>Пример</span>: Если игрок не выходит из техники под угрозой оружия или прямого требования - нарушение] <span class='text-exception'>Исключение</span>: Бронированная техника]</div><div class="rule-punishment" style="margin-top:5px; color:#fca5a5; font-size:0.9em;">Наказание: ★★☆☆☆</div></div>
+                <div class="rule-block"><div class="rule-header"><div class="rule-number">2.11.T</div> <h2 class="rule-title">WLA</h2></div><div class="rule-desc-text">Запрещено использовать Whitelist для собственной выгоды/третьих лиц или для того, чтобы навредить кому-либо. (в т.ч. выдача профессии, которая не полагается игроку)</div><div class="rule-punishment" style="margin-top:5px; color:#fca5a5; font-size:0.9em;">Наказание: ★★☆☆☆</div></div>
+                <div class="rule-block"><div class="rule-header"><div class="rule-number">2.12.T</div> <h2 class="rule-title">RoleAbuse</h2></div><div class="rule-desc-text">Запрещено выдавать специальности лицам, не прошедшим обучения. Можно иметь только одну специальность.<br>При смене стороны вы забываете абсолютно все события и создаете нового персонажа. Запрещено восстанавливать своего персонажа без согласия ГА и выше.<br>Запрещено ставить имена, которые были у персонажа до этого в течение месяца. "Ссылка в Москву", "РП смерти" и т.д. - всё сводится к одному: Запрещено восстанавливать персонажа и ставить такое или похожее имя.</div><div class="rule-punishment" style="margin-top:5px; color:#fca5a5; font-size:0.9em;">Наказание: ★★☆☆☆</div></div>
+                <div class="rule-block"><div class="rule-header"><div class="rule-number">2.13.T</div></div><div class="rule-desc-text">Запрещено использовать старое звание и профессию в случае снятия со структуры (при отсутствии роли в Дискорд в т.ч.)</div><div class="rule-punishment" style="margin-top:5px; color:#fca5a5; font-size:0.9em;">Наказание: ★★★☆☆</div></div>
+                <div class="rule-block"><div class="rule-header"><div class="rule-number">2.14.T</div> <h2 class="rule-title">RuleAbuse</h2></div><div class="rule-desc-text">Запрещено использование изъянов правил. Если вы сомневаетесь в чем либо, предложите свою идею по правилам или спросите об этом у старшего состава.</div><div class="rule-punishment" style="margin-top:5px; color:#fca5a5; font-size:0.9em;">Наказание: ★★☆☆☆-★★★★★</div></div>
+                <div class="rule-block"><div class="rule-header"><div class="rule-number">2.15.T</div> <h2 class="rule-title">RPK</h2></div><div class="rule-desc-text">Ролевая смерть персонажа, которая несёт за собой потерю того или иного прогресса, полученного во время игры на сервере.</div><div class="rule-punishment" style="margin-top:5px; color:#fca5a5; font-size:0.9em;">Наказание: ★★☆☆☆</div></div>
+                <div class="rule-block"><div class="rule-header"><div class="rule-number">2.16.T</div> <h2 class="rule-title">Fun RP</h2></div><div class="rule-desc-text">Игрок, осознанно нарушающий правила проекта, а также нарушающий атмосферу игры на сервере, подвергается блокировке вплоть до перманентной в зависимости от ситуации.</div><div class="rule-punishment" style="margin-top:5px; color:#fca5a5; font-size:0.9em;">Наказание: ★★★☆☆</div></div>
+
+                <div style="height: 60px;"></div>
+
+                <div class="content-header" id="rules-chat">
+                     <h1>III. Правила чата</h1>
+                </div>
+                
+                <div class="rule-block"><div class="rule-header"><div class="rule-number">3.1.С</div></div><div class="rule-desc-text">Запрещено флудить в чат и в микрофон (орать), использовать SoundPad.<br><span class='text-exception'>Исключение</span>: наличие гитары/РП оркестр для иных мероприятий, которые требуют музыки/использование саундпада)<br><span class='text-complement'>Дополнение</span>: Запрещено включать не лорную музыку выпущенную после 1987 г.)<br>Запрещены стоны/неприятные звуки/нацистские гимны и т.п аморальные или неприличные звуки.</div><div class="rule-punishment" style="margin-top:5px; color:#fca5a5; font-size:0.9em;">Наказание: ★★☆☆☆</div></div>
+                <div class="rule-block"><div class="rule-header"><div class="rule-number">3.2.С</div></div><div class="rule-desc-text">Запрещен SPAM и СAPS.<br><span class='text-example'>Пример</span> нарушения: Запрещено отправлять в чат бессмысленные отыгровки.]<br><span class='text-complement'>Дополнение</span>: Запрещено упоминание реферальной системы и кодов на сервере, за исключением описания к видео или ЛС Discord)<br><span class='text-exception'>Исключение</span>: Разрешено рассказывать о реферальной системе новичкам, но распространять код запрещено]</div><div class="rule-punishment" style="margin-top:5px; color:#fca5a5; font-size:0.9em;">Наказание: ★★☆☆☆</div></div>
+                <div class="rule-block"><div class="rule-header"><div class="rule-number">3.3.С</div></div><div class="rule-desc-text">Запрещено использовать общий чат для общения между игроками.<br><span class='text-complement'>Дополнение</span> 1: Общий чат можно использоваться в случаях: Уточнение об окончании WA; Отписать об AFK; Отписать о выходе с сервера; Написать мнение о действиях состава GameMaster]<br><span class='text-complement'>Дополнение</span> 2: Любое общение происходит через /рт, командный чат или Discord.]<br><span class='text-note'>Примечание</span>: Запрещено отправлять NonRP информацию в /advert и /afg.]</div><div class="rule-punishment" style="margin-top:5px; color:#fca5a5; font-size:0.9em;">Наказание: jail до 2-х часов</div></div>
+                <div class="rule-block"><div class="rule-header"><div class="rule-number">3.4.С</div></div><div class="rule-desc-text">Запрещены грубые оскорбления и/или провокации, которые затрагивают личность игрока/администратора проекта.<br><span class='text-complement'>Дополнение</span>: Оскорбления, высказанные в игровых рамках разрешены. Оскорбления на пустом месте - запрещены.] <span class='text-note'>Примечание</span>: Оскорбление родителей в игровом формате запрещено.]</div><div class="rule-punishment" style="margin-top:5px; color:#fca5a5; font-size:0.9em;">Наказание: ★★☆☆☆</div></div>
+
             </div>
+        </main>
 
-            <!-- 1.3 Администрация и порядок -->
-            <div class="rule-block">
-                <div class="rule-header">
-                    <div class="rule-number">1.3</div>
-                    <h2 class="rule-title">Администрация и порядок</h2>
-                </div>
-                <div class="rule-items">
-                    <div class="rule-item">
-                        <div class="rule-text"><strong>1.3.1</strong> Администрация является гарантом порядка и RP-атмосферы сервера.</div>
-                    </div>
-                    <div class="rule-item">
-                        <div class="rule-text"><strong>1.3.2</strong> Администратор имеет право вмешаться в любую ситуацию, если действия игрока разрушают RP.</div>
-                    </div>
-                    <div class="rule-item">
-                        <div class="rule-text"><strong>1.3.3</strong> Споры с администратором во время игровой ситуации запрещены. Жалобы подаются после, в установленном порядке.</div>
-                    </div>
-                </div>
-            </div>
+        <!-- RIGHT TOC -->
+        <aside class="doc-toc">
+            <!-- <div class="toc-header">НАВИГАЦИЯ</div> -->
+             <a href="#rules-general" class="toc-link">Общие правила</a>
+             <a href="#rules-terms" class="toc-link">Свод терминов</a>
+             <a href="#rules-chat" class="toc-link">Правила чата</a>
+        </aside>
 
-            <!-- 1.4 Запрещённые действия -->
-            <div class="rule-block">
-                <div class="rule-header">
-                    <div class="rule-number">1.4</div>
-                    <h2 class="rule-title">Запрещённые действия</h2>
-                </div>
-                <div class="rule-items">
-                    <div class="rule-item rule-item-danger">
-                        <div class="rule-text"><strong>1.4.1</strong> Использование багов, читов и стороннего программного обеспечения запрещено.</div>
-                    </div>
-                    <div class="rule-item rule-item-danger">
-                        <div class="rule-text"><strong>1.4.2</strong> Обход наказаний (создание новых аккаунтов, смена никнеймов) строго запрещён.</div>
-                    </div>
-                </div>
-            </div>
+    </div>
 
-            <div style="margin-top: 28px; display: flex; gap: 14px; flex-wrap: wrap; justify-content: center;">
-                <a href="index.html#rules" class="btn btn-outline">← Назад</a>
-                <a href="rules-rp.html" class="btn btn-primary">Далее: 🎭 RP-правила →</a>
-            </div>
-        </div>
-    </main>
-
+    <!-- Scripts -->
     <script src="script.js"></script>
+    <script>
+        function toggleAccordion(id) {
+            const group = document.getElementById(id);
+            group.classList.toggle('expanded');
+        }
+    </script>
 </body>
 </html>
+
