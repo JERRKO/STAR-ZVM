@@ -82,14 +82,34 @@
     <!-- ========================================
          Header
          ======================================== -->
-    <header class="header">
+    <header class="header" id="mainHeader">
         <!-- Logo -->
         <a href="index.html" class="logo">
             <img src="img/logo.png" alt="Star Logo" class="logo-img">
             <span class="logo-text"><span>S</span>tar</span>
         </a>
+
+        <!-- Desktop Navigation (New Rounded Buttons) -->
+        <nav class="header-nav">
+            <a href="developers.html" class="nav-btn">
+                <img src="img/Logo-team.png" alt="Team">
+                Разработчики
+            </a>
+            <a href="https://discord.gg/rBHWSk4eTT" target="_blank" class="nav-btn">
+                <img src="img/DISCORD-Logo.png" alt="Discord">
+                Discord
+            </a>
+            <a href="https://t.me/ZVEZDAMEME" target="_blank" class="nav-btn">
+                <img src="img/telegram-logo.png" alt="Telegram">
+                Telegram
+            </a>
+            <a href="https://boosty.to/jerry_zvezdameme/donate" target="_blank" class="nav-btn">
+                <img src="img/boosty-logo.png" alt="Boosty">
+                Поддержка
+            </a>
+        </nav>
         
-        <!-- Hamburger Button -->
+        <!-- Hamburger Button (Mobile Only) -->
         <button class="hamburger-btn" id="hamburgerBtn">
             <span class="bar bar-1"></span>
             <span class="bar bar-2"></span>
@@ -119,9 +139,13 @@
             
             <div class="menu-divider"></div>
             
-            <a href="https://boosty.to/jerry_zvezdameme/donate" target="_blank" class="menu-link menu-donate">
-                <img src="img/donationaltres-logo.png" alt="DonationAlerts" class="menu-icon">
+            <a href="https://www.donationalerts.com/r/starzvm" target="_blank" class="menu-link menu-donate">
+                <img src="img/boosty-logo.png" alt="DonationAlerts" class="menu-icon">
                 <span>Донат</span>
+            </a>
+            <a href="https://boosty.to/jerry_zvezdameme/donate" target="_blank" class="menu-link menu-donate" style="margin-top: 10px; border-color: #fca5a5; color: #fca5a5;">
+                <img src="img/boosty-logo.png" alt="Boosty" class="menu-icon">
+                <span>Поддержка</span>
             </a>
         </nav>
     </div>
@@ -131,9 +155,8 @@
          ======================================== -->
     <section class="hero parallax-container" id="heroSection">
         
-        <!-- 1. Meteor Rain Layer (Canvas) -->
-        <canvas id="meteorCanvas" class="parallax-layer layer-meteors"></canvas>
-
+        <!-- REMOVED: Meteor Canvas (Interactive Effects Disabled) -->
+        
         <!-- 2. Base Image Layer (Optional - blending) -->
         <div class="parallax-layer layer-base"></div>
         
@@ -149,14 +172,14 @@
                 <h1 class="hero-military-title">АФГАНИСТАН РП</h1>
             </div>
             <div class="hero-military-sub">
-                MILITARY ROLEPLAY
+                MILITARY RP Gorebox
             </div>
             
             <div class="hero-divider"></div>
             
             <div class="hero-cta">
                 <a href="https://discord.gg/rBHWSk4eTT" target="_blank" rel="noopener" class="btn btn-primary" data-i18n="hero.join">ПРИСОЕДИНИТЬСЯ</a>
-                <a href="rules-general.html" class="btn btn-outline" data-i18n="hero.rules"><span class="btn-icon">🛈</span> ПРАВИЛА    </a>
+                <a href="rules-general.html" class="btn btn-outline" data-i18n="hero.rules">ПРАВИЛА СЕРВЕРА</a>
             </div>
         </div>
         
@@ -181,10 +204,64 @@
                 <h2 class="about-title">АФГАНСКАЯ <span>ВОЙНА</span></h2>
                 
                 <div class="about-desc">
-                    <p><strong>ZVM Star</strong> — это сообщество и проект, созданный для качественного Military RolePlay. Мы делаем упор на серьёзную RP-отыгровку, атмосферу военного конфликта и продуманный игровой процесс.</p>
+                    <p><strong>Афганская война (1979–1989)</strong> — вооружённый конфликт, в котором советские войска участвовали в боевых операциях на территории Афганистана. Основные события включают охрану стратегических объектов, боевые выходы, операции против моджахедов, патрулирование городов и горных районов, а также постоянную угрозу засад и диверсий. Война проходила в сложных климатических условиях и требовала строгой дисциплины, военной тактики и слаженной работы подразделений.</p>
                 </div>
 
                 <a href="https://discord.gg/rBHWSk4eTT" target="_blank" rel="noopener" class="btn btn-primary">ПРИСОЕДИНИТЬСЯ</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         Atmosphere Section
+         ======================================== -->
+    <section class="atmosphere-section">
+        <div class="atmosphere-container">
+            <h2 class="atmosphere-title">АТМОСФЕРА <span>КАРТЫ</span></h2>
+            
+            <div class="carousel-container">
+                <button class="carousel-btn prev-btn" id="prevBtn">&#10094;</button>
+                
+                <div class="carousel-track-container">
+                    <ul class="carousel-track" id="track">
+                        <!-- Карточка 1 -->
+                        <li class="carousel-slide">
+                            <div class="atmos-card">
+                                <img src="img/a.jpg" alt="Atmosphere 1">
+                            </div>
+                        </li>
+                        
+                        <!-- Карточка 2 -->
+                        <li class="carousel-slide">
+                            <div class="atmos-card">
+                                <img src="img/b.jpg" alt="Atmosphere 2">
+                            </div>
+                        </li>
+                        
+                        <!-- Карточка 3 -->
+                        <li class="carousel-slide">
+                            <div class="atmos-card">
+                                <img src="img/c.jpg" alt="Atmosphere 3">
+                            </div>
+                        </li>
+
+                        <!-- Карточка 4 -->
+                        <li class="carousel-slide">
+                            <div class="atmos-card">
+                                <img src="img/a.jpg" alt="Atmosphere 4">
+                            </div>
+                        </li>
+
+                        <!-- Карточка 5 -->
+                        <li class="carousel-slide">
+                            <div class="atmos-card">
+                                <img src="img/b.jpg" alt="Atmosphere 5">
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <button class="carousel-btn next-btn" id="nextBtn">&#10095;</button>
             </div>
         </div>
     </section>
@@ -204,7 +281,7 @@
          ======================================== -->
     <footer class="footer">
         <p class="footer-text" data-i18n="footer.text">
-            © 2026 <span>Star</span> — Military RP: Afghanistan. Все права защищены.
+            © 2026 <span>Star ZVM</span> — Military RP: Afghanistan. Все права защищены.
         </p>
     </footer>
 

@@ -1,167 +1,10 @@
 ﻿/* ========================================
-   MILITARY RP - 3D Parallax Mouse Effect
-   Только для фона
+   MILITARY RP - Core Logic
    ======================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
-    // ========================================
-    // 1. FALLING METEORS ANIMATION (Canvas)
-    // ========================================
-    const canvas = document.getElementById('meteorCanvas');
-    if (canvas) {
-        const ctx = canvas.getContext('2d');
-        let width, height;
 
-        function resize() {
-            width = canvas.width = canvas.parentElement.offsetWidth;
-            height = canvas.height = canvas.parentElement.offsetHeight;
-        }
-        window.addEventListener('resize', resize);
-        resize();
-
-        // Star Texture (Try to load image, fallback to generated glow)
-        const starImg = new Image();
-        starImg.src = 'img/STAR.png';
-        
-        // Fallback canvas (Yellow Glow)
-        const starCanvas = document.createElement('canvas');
-        starCanvas.width = 32;
-        starCanvas.height = 32;
-        const sCtx = starCanvas.getContext('2d');
-        const grd = sCtx.createRadialGradient(16, 16, 0, 16, 16, 16);
-        grd.addColorStop(0, 'white');
-        grd.addColorStop(0.2, '#fff1a8');
-        grd.addColorStop(0.4, 'rgba(255, 215, 0, 0.5)');
-        grd.addColorStop(1, 'transparent');
-        sCtx.fillStyle = grd;
-        sCtx.beginPath();
-        sCtx.arc(16, 16, 16, 0, Math.PI*2);
-        sCtx.fill();
-
-        class Meteor {
-            constructor() {
-                this.reset(true);
-            }
-
-            reset(initial = false) {
-                // FIX: On mobile/vertical screens, to cover the bottom-right, 
-                // the meteor must start far to the left (negative X).
-                // Determine range based on height to ensure diagonal coverage.
-                
-                const startXMin = -height; // Allow spawning far left
-                const startXMax = width;   // Allow spawning up to right edge
-                
-                this.x = startXMin + Math.random() * (startXMax - startXMin);
-                this.y = -100;
-                
-                if (initial) {
-                   this.x = Math.random() * width;
-                   this.y = Math.random() * height;
-                }
-
-                this.speed = 2 + Math.random() * 2; // Slower speed
-                this.size = 50 + Math.random() * 70;  // MUCH BIGGER (50px to 100px)
-                this.len = 150 + Math.random() * 200; 
-                this.angle = Math.PI / 4; 
-                
-                // Rotation initialization
-                this.rotationAngle = Math.random() * Math.PI * 2;
-                this.rotationSpeed = 0.02 + Math.random() * 0.05; // Slower rotation
-            }
-
-            update() {
-                this.x += this.speed * Math.cos(this.angle);
-                this.y += this.speed * Math.sin(this.angle);
-                
-                // Update rotation (Clockwise)
-                this.rotationAngle += this.rotationSpeed;
-
-                if (this.y > height + 100 || this.x > width + 100) {
-                    this.reset();
-                }
-            }
-
-            draw() {
-                // 1. Draw Trail
-                const tailX = this.x - this.len * Math.cos(this.angle);
-                const tailY = this.y - this.len * Math.sin(this.angle);
-                
-                const gradient = ctx.createLinearGradient(this.x, this.y, tailX, tailY);
-                gradient.addColorStop(0, 'rgba(255, 255, 255, 0.8)');
-                gradient.addColorStop(1, 'rgba(255, 215, 0, 0)');
-
-                ctx.strokeStyle = gradient;
-                ctx.lineWidth = 2 + (this.size / 30);
-                ctx.lineCap = 'round';
-                ctx.beginPath();
-                ctx.moveTo(this.x, this.y);
-                ctx.lineTo(tailX, tailY);
-                ctx.stroke();
-
-                // 2. Draw Star Head
-                ctx.save();
-                ctx.translate(this.x, this.y);
-                
-                // Apply rotation
-                ctx.rotate(this.rotationAngle);
-
-                if (starImg.complete && starImg.naturalWidth !== 0) {
-                    // Draw Image
-                    ctx.drawImage(starImg, -this.size/2, -this.size/2, this.size, this.size);
-                } else {
-                    // Draw Fallback
-                    ctx.drawImage(starCanvas, -this.size/2, -this.size/2, this.size, this.size);
-                }
-                ctx.restore();
-            }
-        }
-
-        const meteors = [];
-        const meteorCount = 15; // Number of stars (Reduced from 40 for less clutter)
-
-        for (let i = 0; i < meteorCount; i++) {
-            meteors.push(new Meteor());
-        }
-
-        function animateMeteors() {
-            ctx.clearRect(0, 0, width, height);
-            
-            meteors.forEach(m => {
-                m.update();
-                m.draw();
-            });
-            
-            requestAnimationFrame(animateMeteors);
-        }
-        
-        animateMeteors();
-    }
-
-
-
-    // ========================================
-    // 2. PARALLAX EFFECT (Mouse Move)
-    // ========================================
-    const heroSection = document.getElementById('heroSection');
-    const layerBase = document.querySelector('.layer-base');
-    const layerTop = document.querySelector('.layer-top');
-
-    if (heroSection && layerBase && layerTop) {
-        heroSection.addEventListener('mousemove', (e) => {
-            const x = (window.innerWidth - e.pageX * 2) / 100;
-            const y = (window.innerHeight - e.pageY * 2) / 100;
-
-            // Move layers slightly different amounts for depth
-            layerBase.style.transform = 'translateX(' + (x * 0.5) + 'px) translateY(' + (y * 0.5) + 'px)';
-            layerTop.style.transform = 'translateX(' + (x * 1.5) + 'px) translateY(' + (y * 1.5) + 'px)';
-        });
-        
-        // Reset on mouse leave (optional)
-        heroSection.addEventListener('mouseleave', () => {
-            layerBase.style.transform = 'translate(0,0)';
-            layerTop.style.transform = 'translate(0,0)';
-        });
-    }
+    /* Falling Meteors & Parallax Effect have been disabled to keep the site clean and static. */
 
     // ========================================
     // Scroll Reveal Animation (About Section)
@@ -224,6 +67,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 top: 0,
                 behavior: 'smooth'
             });
+        });
+    }
+
+    // ========================================
+    // Header Scroll Effect (Transparent -> Solid)
+    // ========================================
+    const header = document.getElementById('mainHeader');
+    
+    if (header) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
         });
     }
 
@@ -424,3 +282,64 @@ window.switchTab = function(tabId) {
         }
     });
 };
+
+/* ========================================
+   ATMOSPHERE CAROUSEL LOGIC
+   ======================================== */
+document.addEventListener('DOMContentLoaded', () => {
+    const track = document.querySelector('.carousel-track');
+    if (!track) return; // Only run on pages with the carousel
+
+    const slides = Array.from(track.children);
+    const nextBtn = document.getElementById('nextBtn');
+    const prevBtn = document.getElementById('prevBtn');
+    
+    // Config
+    const cardWidthPercent = 33.33333; 
+    let isAnimating = false;
+
+    if (nextBtn && prevBtn) {
+        // NEXT BUTTON
+        nextBtn.addEventListener('click', () => {
+            if (isAnimating) return;
+            isAnimating = true;
+
+            track.style.transition = 'transform 0.4s ease-in-out';
+            track.style.transform = `translateX(-${cardWidthPercent}%)`;
+
+            track.addEventListener('transitionend', () => {
+                track.style.transition = 'none';
+                track.appendChild(track.firstElementChild); // Move first item to end
+                track.style.transform = 'translateX(0)';
+                
+                setTimeout(() => { isAnimating = false; }, 10);
+            }, { once: true });
+        });
+
+        // PREV BUTTON
+        prevBtn.addEventListener('click', () => {
+            if (isAnimating) return;
+            isAnimating = true;
+
+            // Move last item to front immediately
+            track.style.transition = 'none';
+            track.insertBefore(track.lastElementChild, track.firstElementChild);
+            track.style.transform = `translateX(-${cardWidthPercent}%)`; 
+            
+            // Force redraw
+            void track.offsetWidth;
+
+            // Animate to 0
+            track.style.transition = 'transform 0.4s ease-in-out';
+            track.style.transform = 'translateX(0)';
+
+            track.addEventListener('transitionend', () => {
+                 isAnimating = false;
+            }, { once: true });
+        });
+    }
+
+    // Optional: Auto-play (User didn't ask but it's nice for atmosphere)
+    // setInterval(() => { nextBtn.click(); }, 5000);
+});
+
